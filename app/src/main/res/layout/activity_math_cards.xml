@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#82c4dd">
+    tools:context="com.minton.fastmathtrainer.MathCardsActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".4"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+
+        <TextView
+            android:id="@+id/equation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top|center"
+            android:keepScreenOn="true"
+            android:text="@string/equation"
+            android:textColor="#FFFFFF"
+            android:textSize="100sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top|center"
+            android:keepScreenOn="true"
+            android:text="@string/equation"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".75"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:weightSum="4" >
+
+            <TableRow android:layout_weight="1" >
+                <Button
+                    android:id="@+id/one"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/one"/>
+                <Button
+                    android:id="@+id/two"
+                    android:layout_toRightOf="@+id/one"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/two"/>
+                <Button
+                    android:id="@+id/three"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/three"/>
+            </TableRow>
+
+            <TableRow android:layout_weight="1" >
+                <Button
+                    android:id="@+id/four"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/four"/>
+                <Button
+                    android:id="@+id/five"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/five" />
+                <Button
+                    android:id="@+id/six"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/six" />
+            </TableRow>
+            <TableRow android:layout_weight="1" >
+                <Button
+                    android:id="@+id/seven"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/seven"/>
+
+                <Button
+                    android:id="@+id/eight"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/eight"/>
+
+                <Button
+                    android:id="@+id/nine"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/nine"/>
+            </TableRow>
+            <TableRow android:layout_weight="1" >
+                <Button
+                    android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/zero"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/zero"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>
