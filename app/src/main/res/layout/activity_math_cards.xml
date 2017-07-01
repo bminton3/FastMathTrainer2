@@ -73,7 +73,9 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/one"/>
+                    android:text="@string/one"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
                 <Button
                     android:id="@+id/two"
                     android:layout_toRightOf="@+id/one"
@@ -82,14 +84,18 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/two"/>
+                    android:text="@string/two"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
                 <Button
                     android:id="@+id/three"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/three"/>
+                    android:text="@string/three"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
             </TableRow>
 
             <TableRow android:layout_weight="1" >
@@ -99,7 +105,9 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/four"/>
+                    android:text="@string/four"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
                 <Button
                     android:id="@+id/five"
                     android:layout_height="match_parent"
@@ -107,14 +115,18 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/five" />
+                    android:text="@string/five"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
                 <Button
                     android:id="@+id/six"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/six" />
+                    android:text="@string/six"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
@@ -123,7 +135,9 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/seven"/>
+                    android:text="@string/seven"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
 
                 <Button
                     android:id="@+id/eight"
@@ -132,7 +146,9 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/eight"/>
+                    android:text="@string/eight"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
 
                 <Button
                     android:id="@+id/nine"
@@ -140,11 +156,20 @@
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/nine"/>
+                    android:text="@string/nine"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
-                    android:visibility="invisible"/>
+                    android:id="@+id/clear"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/clear"
+                    android:textColor="#62e0d7"
+                    android:textSize="40sp"/>
                 <Button
                     android:id="@+id/zero"
                     android:layout_height="match_parent"
@@ -152,7 +177,18 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:background="@drawable/mybutton"
-                    android:text="@string/zero"/>
+                    android:text="@string/zero"
+                    android:textColor="#2e355b"
+                    android:textSize="40sp"/>
+                <Button
+                    android:id="@+id/back"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/mybutton"
+                    android:text="@string/back"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40sp"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>

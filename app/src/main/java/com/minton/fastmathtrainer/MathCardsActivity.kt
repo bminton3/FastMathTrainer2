@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_math_cards.*
+import java.security.SecureRandom
 
 
 /**
@@ -15,8 +16,8 @@ import kotlinx.android.synthetic.main.activity_math_cards.*
  */
 class MathCardsActivity : AppCompatActivity() {
 
-    private var mVisible: Boolean = false
     private val mHideHandler = Handler()
+    private var total: Int = 0
 
     /**
      * Maybe this is the main method
@@ -26,8 +27,6 @@ class MathCardsActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_math_cards)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        mVisible = true
 
         // Set up the user interaction to manually show or hide the system UI.
         //equation.setOnClickListener { toggle() }
@@ -42,9 +41,7 @@ class MathCardsActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
-        val text: TextView = findViewById<TextView>(R.id.equation)
-
-        text.text = "1+2"
+        updateEquation()
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
@@ -56,46 +53,85 @@ class MathCardsActivity : AppCompatActivity() {
         //delayedHide(100)
     }
 
-    private fun createButtonListeners() {
-        val oneButton : Button = findViewById<Button>(R.id.one)
-        oneButton.setOnClickListener { answer.text = oneButton.text }
-        val twoButton : Button = findViewById<Button>(R.id.two)
-        twoButton.setOnClickListener { answer.text = twoButton.text }
-        val threeButton : Button = findViewById<Button>(R.id.three)
-        threeButton.setOnClickListener { answer.text = threeButton.text }
-        val fourButton : Button = findViewById<Button>(R.id.four)
-        fourButton.setOnClickListener { answer.text = fourButton.text }
-        val fiveButton : Button = findViewById<Button>(R.id.five)
-        fiveButton.setOnClickListener { answer.text = fiveButton.text }
-        val sixButton : Button = findViewById<Button>(R.id.six)
-        sixButton.setOnClickListener { answer.text = sixButton.text }
-        val sevenButton : Button = findViewById<Button>(R.id.seven)
-        sevenButton.setOnClickListener { answer.text = sevenButton.text }
-        val eightButton : Button = findViewById<Button>(R.id.eight)
-        eightButton.setOnClickListener { answer.text = eightButton.text }
-        val nineButton : Button = findViewById<Button>(R.id.nine)
-        nineButton.setOnClickListener { answer.text = nineButton.text }
-        val zeroButton : Button = findViewById<Button>(R.id.zero)
-        zeroButton.setOnClickListener { answer.text = zeroButton.text }
+    private fun randomInt(): Int {
+        val random = SecureRandom()
+        return random.nextInt(9)
     }
 
-    companion object {
-        /**
-         * Whether or not the system UI should be auto-hidden after
-         * [AUTO_HIDE_DELAY_MILLIS] milliseconds.
-         */
-        private val AUTO_HIDE = true
+    private fun createButtonListeners() {
+        val oneButton : Button = findViewById<Button>(R.id.one)
+        oneButton.setOnClickListener {
+            answer.append(oneButton.text)
+            checkAnswer()
+        }
+        val twoButton : Button = findViewById<Button>(R.id.two)
+        twoButton.setOnClickListener {
+            answer.append(twoButton.text)
+            checkAnswer()
+        }
+        val threeButton : Button = findViewById<Button>(R.id.three)
+        threeButton.setOnClickListener {
+            answer.append(threeButton.text)
+            checkAnswer()
+        }
+        val fourButton : Button = findViewById<Button>(R.id.four)
+        fourButton.setOnClickListener {
+            answer.append(fourButton.text)
+            checkAnswer()
+        }
+        val fiveButton : Button = findViewById<Button>(R.id.five)
+        fiveButton.setOnClickListener {
+            answer.append(fiveButton.text)
+            checkAnswer()
+        }
+        val sixButton : Button = findViewById<Button>(R.id.six)
+        sixButton.setOnClickListener {
+            answer.append(sixButton.text)
+            checkAnswer()
+        }
+        val sevenButton : Button = findViewById<Button>(R.id.seven)
+        sevenButton.setOnClickListener {
+            answer.append(sevenButton.text)
+            checkAnswer()
+        }
+        val eightButton : Button = findViewById<Button>(R.id.eight)
+        eightButton.setOnClickListener {
+            answer.append(eightButton.text)
+            checkAnswer()
+        }
+        val nineButton : Button = findViewById<Button>(R.id.nine)
+        nineButton.setOnClickListener {
+            answer.append(nineButton.text)
+            checkAnswer()
+        }
+        val zeroButton : Button = findViewById<Button>(R.id.zero)
+        zeroButton.setOnClickListener {
+            answer.append(zeroButton.text)
+            checkAnswer()
+        }
+        val backButton : Button = findViewById<Button>(R.id.back)
+        backButton.setOnClickListener {
+            if (answer.text.length >= 1) {
+                answer.text = answer.text.substring(0, answer.text.length - 1)
+            }
+        }
+        val clearButton : Button = findViewById<Button>(R.id.clear)
+        clearButton.setOnClickListener { answer.text = "" }
+    }
 
-        /**
-         * If [AUTO_HIDE] is set, the number of milliseconds to wait after
-         * user interaction before hiding the system UI.
-         */
-        private val AUTO_HIDE_DELAY_MILLIS = 3000
+    private fun checkAnswer() {
+        if (answer.text.toString().toInt() == total) {
+            updateEquation()
+            answer.text = ""
+        }
+    }
 
-        /**
-         * Some older devices needs a small delay between UI widget updates
-         * and a change of the status and navigation bar.
-         */
-        private val UI_ANIMATION_DELAY = 300
+    private fun updateEquation() {
+        val text: TextView = findViewById<TextView>(R.id.equation)
+
+        val x = randomInt()
+        val y = randomInt()
+        total = x+y
+        text.text = x.toString() + "+" + y.toString()
     }
 }
