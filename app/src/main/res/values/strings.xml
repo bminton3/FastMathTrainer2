@@ -3,6 +3,11 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="equation">%1s</string>
+    <string name="timertext">%.2f</string>
+    <string name="score">%1s</string>
+
+    <!-- winning screen -->
+    <string name="message">%1s</string>
 
     <!-- num pad -->
     <string name="one">1</string>

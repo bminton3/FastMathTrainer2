@@ -10,6 +10,37 @@
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="1"
+            android:orientation="horizontal">
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_gravity="start"
+                android:text="@string/timertext"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/score"
+                android:layout_gravity="end"
+                android:text="@string/score"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                />
+        </GridLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +51,7 @@
 
         <TextView
             android:id="@+id/equation"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="top|center"
@@ -72,7 +103,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/one"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -81,9 +113,10 @@
                     android:layout_toRightOf="@+id/one"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/two"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -92,7 +125,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/three"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -104,7 +138,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/four"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -112,9 +147,10 @@
                     android:id="@+id/five"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/five"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -123,7 +159,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/six"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -134,7 +171,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/seven"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -143,9 +181,10 @@
                     android:id="@+id/eight"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/eight"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -155,7 +194,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/nine"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -166,17 +206,17 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/mybutton"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/clear"
-                    android:textColor="#62e0d7"
+                    android:textColor="#2e355b"
                     android:textSize="40sp"/>
                 <Button
                     android:id="@+id/zero"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:background="@drawable/mybutton"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/zero"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -185,9 +225,9 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/mybutton"
+                    android:background="@drawable/flatbutton"
                     android:text="@string/back"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#2e355b"
                     android:textSize="40sp"/>
             </TableRow>
         </TableLayout>

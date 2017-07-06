@@ -1,11 +1,14 @@
 package com.minton.fastmathtrainer
 
+import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
+import android.os.SystemClock
 import android.widget.TextView
 import android.widget.Button
+import android.widget.Chronometer
 import kotlinx.android.synthetic.main.activity_math_cards.*
 import java.security.SecureRandom
 
@@ -18,6 +21,7 @@ class MathCardsActivity : AppCompatActivity() {
 
     private val mHideHandler = Handler()
     private var total: Int = 0
+    private var scoreNumber: Int = 0
 
     /**
      * Maybe this is the main method
@@ -32,6 +36,10 @@ class MathCardsActivity : AppCompatActivity() {
         //equation.setOnClickListener { toggle() }
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
+        val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
+
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.start()
 
         createButtonListeners()
     }
@@ -45,6 +53,7 @@ class MathCardsActivity : AppCompatActivity() {
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
+        score.text = "Score : " + scoreNumber
         answer.text = ""
 
         // Trigger the initial hide() shortly after the activity has been
@@ -120,10 +129,39 @@ class MathCardsActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer() {
-        if (answer.text.toString().toInt() == total) {
-            updateEquation()
-            answer.text = ""
+        var oldColor : Int = answer.currentTextColor
+        if (answer.text.toString().length == total.toString().length) {
+            if (answer.text.toString().toInt() == total) {
+                answer.setTextColor(Color.GREEN)
+                updateEquation()
+                clearTextSetColor(oldColor)
+                scoreNumber++
+                updateScore(scoreNumber)
+            }
+            else {
+                answer.setTextColor(Color.RED)
+                clearTextSetColor(oldColor)
+            }
         }
+    }
+
+    private fun updateScore(scoreNumber : Int) {
+        score.text = "Score : " + scoreNumber
+        if (scoreNumber == 4) {
+            chronometer.stop()
+            val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
+            val intent = Intent(this, WinningScreenActivity::class.java)
+            intent.putExtra("MESSAGE", "You won!")
+            intent.putExtra("TIME", "Your time was " + elapsedMillis / 1000 + " seconds")
+            this.startActivity(intent)
+        }
+    }
+
+    private fun clearTextSetColor(color: Int) {
+        Handler().postDelayed( {
+            answer.setTextColor(color)
+            answer.text = ""
+        }, 300);
     }
 
     private fun updateEquation() {
