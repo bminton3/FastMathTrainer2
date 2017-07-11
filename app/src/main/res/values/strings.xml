@@ -16,6 +16,8 @@
 
     <!-- winning screen -->
     <string name="message">%1s</string>
+    <string name="reset">Start Over</string>
+    <string name="menu">Main Menu</string>
 
     <!-- num pad -->
     <string name="one">1</string>

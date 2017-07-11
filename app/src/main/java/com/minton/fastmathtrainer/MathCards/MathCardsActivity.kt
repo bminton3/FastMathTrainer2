@@ -1,4 +1,4 @@
-package com.minton.fastmathtrainer
+package com.minton.fastmathtrainer.MathCards
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +9,8 @@ import android.os.SystemClock
 import android.widget.TextView
 import android.widget.Button
 import android.widget.Chronometer
+import com.minton.fastmathtrainer.R
+import com.minton.fastmathtrainer.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
 import java.security.SecureRandom
 
@@ -17,11 +19,11 @@ import java.security.SecureRandom
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class MathCardsActivity : AppCompatActivity() {
+abstract class MathCardsActivity : AppCompatActivity() {
 
-    private val mHideHandler = Handler()
-    private var total: Int = 0
-    private var scoreNumber: Int = 0
+    protected val mHideHandler = Handler()
+    protected var total: Int = 0
+    protected var scoreNumber: Int = 0
 
     /**
      * Maybe this is the main method
@@ -62,12 +64,12 @@ class MathCardsActivity : AppCompatActivity() {
         //delayedHide(100)
     }
 
-    private fun randomInt(): Int {
+    protected fun randomInt(): Int {
         val random = SecureRandom()
         return random.nextInt(9)
     }
 
-    private fun createButtonListeners() {
+    protected fun createButtonListeners() {
         val oneButton : Button = findViewById<Button>(R.id.one)
         oneButton.setOnClickListener {
             answer.append(oneButton.text)
@@ -128,7 +130,7 @@ class MathCardsActivity : AppCompatActivity() {
         clearButton.setOnClickListener { answer.text = "" }
     }
 
-    private fun checkAnswer() {
+    protected fun checkAnswer() {
         var oldColor : Int = answer.currentTextColor
         if (answer.text.toString().length == total.toString().length) {
             if (answer.text.toString().toInt() == total) {
@@ -145,31 +147,25 @@ class MathCardsActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateScore(scoreNumber : Int) {
+    protected fun updateScore(scoreNumber : Int) {
         score.text = "Score : " + scoreNumber
-        if (scoreNumber == 4) {
+        if (scoreNumber == 10) {
             chronometer.stop()
             val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
             val intent = Intent(this, WinningScreenActivity::class.java)
             intent.putExtra("MESSAGE", "You won!")
             intent.putExtra("TIME", "Your time was " + elapsedMillis / 1000 + " seconds")
-            this.startActivity(intent)
+            this.startActivityForResult(intent, 0)
         }
     }
 
-    private fun clearTextSetColor(color: Int) {
+    protected fun clearTextSetColor(color: Int) {
         Handler().postDelayed( {
             answer.setTextColor(color)
             answer.text = ""
         }, 300);
     }
 
-    private fun updateEquation() {
-        val text: TextView = findViewById<TextView>(R.id.equation)
 
-        val x = randomInt()
-        val y = randomInt()
-        total = x+y
-        text.text = x.toString() + "+" + y.toString()
-    }
+    open fun updateEquation() {}
 }

@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- keeping this for notes
         <activity
-            android:name=".MathCardsActivity"
+            android:name=".MathCards.MathCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme">
-        </activity>
+            android:theme="@style/FullscreenTheme" /> -->
         <activity android:name=".WinningScreenActivity" />
         <activity android:name=".MainMenuActivity">
             <intent-filter>
@@ -23,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MathCards.AdditionCardsActivity"></activity>
+        <activity android:name=".MathCards.SubtractionCardsActivity"></activity>
+        <activity android:name=".MathCards.MultiplicationCardsActivity"></activity>
+        <activity android:name=".MathCards.DivisionCardsActivity"></activity>
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".4"
+        android:layout_weight=".5"
         android:orientation="horizontal"
         android:background="#82c4dd">
 
@@ -45,6 +45,44 @@
             android:textColor="#FFFFFF"
             android:textSize="40sp"
             android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:weightSum="4" >
+
+        <TableRow android:layout_weight="1" >
+            <Button
+                android:id="@+id/menu"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/menu"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="20sp"/>
+            <Button
+                android:id="@+id/reset"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="20sp"/>
+        </TableRow>
+        </TableLayout>
     </LinearLayout>
 
 </LinearLayout>
