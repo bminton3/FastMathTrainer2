@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Fast Math Trainer</string>
 
-    <string name="dummy_button">Dummy Button</string>
+    <!-- main menu -->
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="combination">Combination</string>
+    <string name="settings">Settings</string>
+
+    <!-- math cards -->
     <string name="equation">%1s</string>
     <string name="timertext">%.2f</string>
     <string name="score">%1s</string>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.minton.fastmathtrainer.MainMenuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#82c4dd">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:weightSum="4" >
+
+            <Button
+                android:id="@+id/add"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/addition"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+            <Button
+                android:id="@+id/subtract"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/subtraction"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+            <Button
+                android:id="@+id/multiplication"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/multiplication"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+            <Button
+                android:id="@+id/division"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/division"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+            <Button
+                android:id="@+id/combo"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/combination"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+            <Button
+                android:id="@+id/settings"
+                android:layout_height="60sp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/flatbuttonstate"
+                android:text="@string/settings"
+                android:textAllCaps="false"
+                android:textColor="#2e355b"
+                android:textSize="40sp"/>
+        </TableLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

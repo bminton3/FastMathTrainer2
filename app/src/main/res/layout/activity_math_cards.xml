@@ -104,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/one"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -116,7 +116,7 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/two"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/three"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -139,7 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/four"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -150,7 +150,7 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/five"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -160,7 +160,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/six"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/seven"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -184,7 +184,7 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/eight"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -195,7 +195,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/nine"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -206,7 +206,7 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/clear"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -216,7 +216,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/zero"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
@@ -225,7 +225,7 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/flatbutton"
+                    android:background="@drawable/flatbuttonstate"
                     android:text="@string/back"
                     android:textColor="#2e355b"
                     android:textSize="40sp"/>
