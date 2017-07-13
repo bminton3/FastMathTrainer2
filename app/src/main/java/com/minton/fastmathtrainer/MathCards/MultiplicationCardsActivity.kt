@@ -14,6 +14,6 @@ class MultiplicationCardsActivity : MathCardsActivity() {
         val x = randomInt()
         val y = randomInt()
         total = x*y
-        text.text = x.toString() + "*" + y.toString()
+        text.text = x.toString() + " x " + y.toString()
     }
 }

@@ -19,6 +19,6 @@ class SubtractionCardsActivity : MathCardsActivity() {
             y = temp
         }
         total = x-y
-        text.text = x.toString() + "-" + y.toString()
+        text.text = x.toString() + " - " + y.toString()
     }
 }

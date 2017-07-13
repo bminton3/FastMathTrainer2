@@ -8,13 +8,19 @@ import com.minton.fastmathtrainer.R
  */
 class DivisionCardsActivity : MathCardsActivity() {
 
+
     /** TODO figure out division */
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
         val x = randomInt()
-        val y = randomInt()
-        total = x/y
-        text.text = x.toString() + "/" + y.toString()
+        var y = randomInt()
+        // avoid divide by zero
+        if (y == 0) {
+            y++
+        }
+        total = (x*y)/y
+        text.text = (x*y).toString() + " / " + y.toString()
     }
+
 }

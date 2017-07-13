@@ -27,6 +27,7 @@
         <activity android:name=".MathCards.SubtractionCardsActivity"></activity>
         <activity android:name=".MathCards.MultiplicationCardsActivity"></activity>
         <activity android:name=".MathCards.DivisionCardsActivity"></activity>
+        <activity android:name=".MathCards.CombinationCardsActivity"></activity>
     </application>
 
 </manifest>

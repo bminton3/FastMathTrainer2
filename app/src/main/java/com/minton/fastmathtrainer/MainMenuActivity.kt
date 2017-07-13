@@ -35,5 +35,11 @@ class MainMenuActivity : AppCompatActivity() {
             val addIntent = Intent(this, DivisionCardsActivity::class.java)
             this.startActivity(addIntent)
         }
+
+        val combo : Button = findViewById<Button>(R.id.combo)
+        combo.setOnClickListener {
+            val addIntent = Intent(this, CombinationCardsActivity::class.java)
+            this.startActivity(addIntent)
+        }
     }
 }
