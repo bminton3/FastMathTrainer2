@@ -1,15 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.minton.fastmathtrainer.MainMenuActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#82c4dd"
+    tools:context="com.minton.fastmathtrainer.Menus.MainMenuActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_weight=".2"
+        android:background="#82c4dd">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="italic|bold"
+            android:textSize="40sp"
+            android:text="@string/title"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:background="#82c4dd"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/settingsbuttonstate"
+            android:background="#82c4dd"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".6"
         android:background="#82c4dd">
         <TableLayout
             android:layout_width="match_parent"
@@ -67,18 +108,8 @@
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
                 android:textSize="40sp"/>
-            <Button
-                android:id="@+id/settings"
-                android:layout_height="60sp"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
-                android:text="@string/settings"
-                android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40sp"/>
         </TableLayout>
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
-import com.minton.fastmathtrainer.MathCards.AdditionCardsActivity
+import com.minton.fastmathtrainer.Menus.MainMenuActivity
 
 
 class WinningScreenActivity : AppCompatActivity() {

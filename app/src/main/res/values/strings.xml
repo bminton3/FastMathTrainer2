@@ -2,12 +2,23 @@
     <string name="app_name">Fast Math Trainer</string>
 
     <!-- main menu -->
+    <string name="title">\nFast Math Trainer</string>
+    <string name="instructions">You can do it!</string>
     <string name="addition">Addition</string>
     <string name="subtraction">Subtraction</string>
     <string name="multiplication">Multiplication</string>
     <string name="division">Division</string>
     <string name="combination">Combination</string>
     <string name="settings">Settings</string>
+
+    <!-- settings menu -->
+    <string name="currentmode">Game mode</string>
+    <string name="timed">Timed</string>
+    <string name="practice">Practice</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 
     <!-- math cards -->
     <string name="equation">%1s</string>

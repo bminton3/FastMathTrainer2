@@ -9,25 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- keeping this for notes
+
+        <!--
+        keeping this for notes
         <activity
             android:name=".MathCards.MathCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme" /> -->
+            android:theme="@style/FullscreenTheme" />
+        -->
         <activity android:name=".WinningScreenActivity" />
-        <activity android:name=".MainMenuActivity">
+        <activity android:name=".Menus.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MathCards.AdditionCardsActivity"></activity>
-        <activity android:name=".MathCards.SubtractionCardsActivity"></activity>
-        <activity android:name=".MathCards.MultiplicationCardsActivity"></activity>
-        <activity android:name=".MathCards.DivisionCardsActivity"></activity>
-        <activity android:name=".MathCards.CombinationCardsActivity"></activity>
+        <activity android:name=".MathCards.AdditionCardsActivity" />
+        <activity android:name=".MathCards.SubtractionCardsActivity" />
+        <activity android:name=".MathCards.MultiplicationCardsActivity" />
+        <activity android:name=".MathCards.DivisionCardsActivity" />
+        <activity android:name=".MathCards.CombinationCardsActivity" />
+        <activity android:name=".Menus.SettingsActivity"></activity>
     </application>
 
 </manifest>

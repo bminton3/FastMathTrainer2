@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#82c4dd">
+    android:background="#82c4dd"
     tools:context="com.minton.fastmathtrainer.MathCards.MathCardsActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
