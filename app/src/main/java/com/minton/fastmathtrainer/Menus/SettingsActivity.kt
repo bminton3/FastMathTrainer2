@@ -15,7 +15,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        var pref = getPreferences(0)
+        var pref = getSharedPreferences("fastmathtrainer",0)
         val difficulty = pref.getString("difficulty", "easy")
         val gameMode = pref.getString("gameMode", "practice")
 
@@ -27,7 +27,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onPause()
         val difficultySetting : RadioGroup = findViewById<RadioGroup>(R.id.radioButtonGroup)
         val difficultySelected = difficultySetting.checkedRadioButtonId
-        var pref = getPreferences(0).edit()
+        var pref = getSharedPreferences("fastmathtrainer",0).edit()
         when (difficultySelected) {
             R.id.easyRadioButton -> pref.putString("difficulty", "easy")
             R.id.mediumRadioButton -> pref.putString("difficulty", "medium")
@@ -44,7 +44,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         pref.commit()
-        Log.i("onPause() called. Saving state to " + difficultySelected, "wtf")
+        Log.i("onPause() called.", " Saving state to " + pref)
     }
 
     private fun setGameMode(gameMode : String) {

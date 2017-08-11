@@ -1,11 +1,13 @@
 package com.minton.fastmathtrainer.MathCards
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
+import android.util.Log
 import android.widget.TextView
 import android.widget.Button
 import android.widget.Chronometer
@@ -24,6 +26,7 @@ abstract class MathCardsActivity : AppCompatActivity() {
     protected val mHideHandler = Handler()
     protected var total: Int = 0
     protected var scoreNumber: Int = 0
+    protected lateinit var pref : SharedPreferences
 
     /**
      * Maybe this is the main method
@@ -38,10 +41,18 @@ abstract class MathCardsActivity : AppCompatActivity() {
         //equation.setOnClickListener { toggle() }
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
+        pref = getSharedPreferences("fastmathtrainer",0)
+        val gameMode = pref.getString("gameMode", "practice")
         val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
-
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        chronometer.start()
+        if (gameMode.equals("timed")) {
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            chronometer.start()
+        }
+        else {
+            chronometer.visibility = 4
+            val score : TextView = findViewById<TextView>(R.id.score)
+            score.visibility = 4
+        }
 
         createButtonListeners()
     }
@@ -66,7 +77,14 @@ abstract class MathCardsActivity : AppCompatActivity() {
 
     protected fun randomInt(): Int {
         val random = SecureRandom()
-        return random.nextInt(9)
+        val difficulty = pref.getString("difficulty", "easy")
+        Log.i("MathCardsActivity.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
+        when (difficulty) {
+            "easy" -> return random.nextInt(9)
+            "medium" -> return random.nextInt(19)
+            "hard" -> return random.nextInt(29)
+            else -> return random.nextInt(9)
+        }
     }
 
     protected fun createButtonListeners() {
@@ -148,8 +166,9 @@ abstract class MathCardsActivity : AppCompatActivity() {
     }
 
     protected fun updateScore(scoreNumber : Int) {
+        val gameMode = pref.getString("gameMode", "practice")
         score.text = "Score : " + scoreNumber
-        if (scoreNumber == 10) {
+        if (scoreNumber == 10 && gameMode.equals("timed")) {
             chronometer.stop()
             val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
             val intent = Intent(this, WinningScreenActivity::class.java)
