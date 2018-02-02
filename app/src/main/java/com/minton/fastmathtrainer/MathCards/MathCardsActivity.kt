@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Button
 import android.widget.Chronometer
@@ -49,9 +50,9 @@ abstract class MathCardsActivity : AppCompatActivity() {
             chronometer.start()
         }
         else {
-            chronometer.visibility = 4
+            chronometer.visibility = View.INVISIBLE
             val score : TextView = findViewById<TextView>(R.id.score)
-            score.visibility = 4
+            score.visibility = View.INVISIBLE
         }
 
         createButtonListeners()
@@ -75,7 +76,7 @@ abstract class MathCardsActivity : AppCompatActivity() {
         //delayedHide(100)
     }
 
-    protected fun randomInt(): Int {
+    open protected fun randomInt(): Int {
         val random = SecureRandom()
         val difficulty = pref.getString("difficulty", "easy")
         Log.i("MathCardsActivity.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))

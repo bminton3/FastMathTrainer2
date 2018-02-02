@@ -59,7 +59,7 @@
             android:text="@string/equation"
             android:textColor="#FFFFFF"
             android:textSize="100sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
