@@ -8,11 +8,15 @@ import com.minton.fastmathtrainer.R
  */
 class MultiplicationCardsActivity : MathCardsActivity() {
 
+    val firstNumber : Number = Number()
+    val secondNumber : Number = Number()
+
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        val x = randomInt()
-        val y = randomInt()
+
+        val x = firstNumber.randomInt("multiplication", pref)
+        val y = secondNumber.randomInt("multiplication", pref)
         total = x*y
         text.text = x.toString() + " x " + y.toString()
     }

@@ -7,11 +7,14 @@ import com.minton.fastmathtrainer.R
 
 class AdditionCardsActivity : MathCardsActivity() {
 
+    val firstNumber : Number = Number()
+    val secondNumber : Number = Number()
+
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        val x = randomInt()
-        val y = randomInt()
+        val x = firstNumber.randomInt("addition", pref)
+        val y = secondNumber.randomInt("addition", pref)
         total = x+y
         text.text = x.toString() + " + " + y.toString()
     }

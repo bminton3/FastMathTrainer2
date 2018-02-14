@@ -18,20 +18,20 @@
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" />
         -->
-        <activity android:name=".WinningScreenActivity" />
-        <activity android:name=".Menus.MainMenuActivity">
+        <activity android:name=".WinningScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Menus.MainMenuActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MathCards.AdditionCardsActivity" />
-        <activity android:name=".MathCards.SubtractionCardsActivity" />
-        <activity android:name=".MathCards.MultiplicationCardsActivity" />
-        <activity android:name=".MathCards.DivisionCardsActivity" />
-        <activity android:name=".MathCards.CombinationCardsActivity" />
-        <activity android:name=".Menus.SettingsActivity"></activity>
+        <activity android:name=".MathCards.AdditionCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MathCards.SubtractionCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MathCards.MultiplicationCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MathCards.DivisionCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MathCards.CombinationCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Menus.SettingsActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

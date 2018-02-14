@@ -8,24 +8,6 @@
     android:background="#82c4dd"
     tools:context="com.minton.fastmathtrainer.Menus.MainMenuActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".2"
-        android:background="#82c4dd">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:textAlignment="center"
-            android:textStyle="italic|bold"
-            android:textSize="40sp"
-            android:text="@string/title"/>
-    </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -37,15 +19,52 @@
             android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/settingsbuttonstate"
-            android:background="#82c4dd"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp" />
+            android:background="#82c4dd"
+            android:src="@drawable/settingsbuttonstate" />
+
+        <TextView
+            android:id="@+id/savedSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:layout_toLeftOf="@+id/settings"
+            android:layout_toStartOf="@+id/settings"
+            android:fontFamily="monospace"
+            android:text="@string/savedSettings"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:visibility="invisible" />
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".2"
+        android:background="#82c4dd">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="top"
+            android:includeFontPadding="false"
+            android:paddingTop="0px"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,54 +79,58 @@
 
             <Button
                 android:id="@+id/add"
-                android:layout_height="60sp"
                 android:layout_width="match_parent"
+                android:layout_height="60sp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/flatbuttonstate"
                 android:text="@string/addition"
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
+
             <Button
                 android:id="@+id/subtract"
-                android:layout_height="60sp"
                 android:layout_width="match_parent"
+                android:layout_height="60sp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/flatbuttonstate"
                 android:text="@string/subtraction"
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
+
             <Button
                 android:id="@+id/multiplication"
-                android:layout_height="60sp"
                 android:layout_width="match_parent"
+                android:layout_height="60sp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/flatbuttonstate"
                 android:text="@string/multiplication"
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
+
             <Button
                 android:id="@+id/division"
-                android:layout_height="60sp"
                 android:layout_width="match_parent"
+                android:layout_height="60sp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/flatbuttonstate"
                 android:text="@string/division"
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
+
             <Button
                 android:id="@+id/combo"
-                android:layout_height="60sp"
                 android:layout_width="match_parent"
+                android:layout_height="60sp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/flatbuttonstate"
                 android:text="@string/combination"
                 android:textAllCaps="false"
                 android:textColor="#2e355b"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
         </TableLayout>
 
     </LinearLayout>

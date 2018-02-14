@@ -2,6 +2,7 @@ package com.minton.fastmathtrainer.MathCards
 
 import android.widget.TextView
 import com.minton.fastmathtrainer.R
+import java.security.SecureRandom
 
 /**
  * Created by Ben on 7/12/2017.
@@ -9,21 +10,25 @@ import com.minton.fastmathtrainer.R
 class CombinationCardsActivity : MathCardsActivity() {
 
     val operation = arrayOf("addition", "subtraction", "multiplication", "division")
+    val firstNumber : Number = Number()
+    val secondNumber : Number = Number()
 
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        var x = randomInt()
-        var y = randomInt()
-
-        val operationSelection = randomInt() % 4
+        val random = SecureRandom()
+        val operationSelection = random.nextInt(4)
         val operationToShow = operation.get(operationSelection)
 
         if (operationToShow.equals("addition")) {
+            var x = firstNumber.randomInt(operationToShow, pref)
+            var y = secondNumber.randomInt(operationToShow, pref)
             total = x+y
             text.text = x.toString() + " + " + y.toString()
         }
         else if (operationToShow.equals("subtraction")) {
+            var x = firstNumber.randomInt(operationToShow, pref)
+            var y = secondNumber.randomInt(operationToShow, pref)
             if (y > x) {
                 var temp = x
                 x = y
@@ -33,10 +38,14 @@ class CombinationCardsActivity : MathCardsActivity() {
             text.text = x.toString() + " - " + y.toString()
         }
         else if (operationToShow.equals("multiplication")) {
+            var x = firstNumber.randomInt(operationToShow, pref)
+            var y = secondNumber.randomInt(operationToShow, pref)
             total = x*y
             text.text = x.toString() + " x " + y.toString()
         }
         else {
+            var x = firstNumber.randomInt(operationToShow, pref)
+            var y = secondNumber.randomInt(operationToShow, pref)
             // avoid divide by zero
             if (y == 0) {
                 y++

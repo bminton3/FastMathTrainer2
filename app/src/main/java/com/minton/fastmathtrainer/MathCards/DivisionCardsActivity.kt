@@ -10,31 +10,21 @@ import java.security.SecureRandom
  */
 class DivisionCardsActivity : MathCardsActivity() {
 
+    val firstNumber : Number = Number()
+    val secondNumber : Number = Number()
 
     /** TODO figure out division */
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        val x = randomInt()
-        var y = randomInt()
+        val x = firstNumber.randomInt("division", pref)
+        var y = secondNumber.randomInt("division", pref)
         // avoid divide by zero
         if (y == 0) {
             y++
         }
         total = (x*y)/y
         text.text = (x*y).toString() + " / " + y.toString()
-    }
-
-    override fun randomInt(): Int {
-        val random = SecureRandom()
-        val difficulty = pref.getString("difficulty", "easy")
-        Log.i("MathCardsActivity.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
-        when (difficulty) {
-            "easy" -> return random.nextInt(5)
-            "medium" -> return random.nextInt(7)
-            "hard" -> return random.nextInt(9)
-            else -> return random.nextInt(5)
-        }
     }
 
 }

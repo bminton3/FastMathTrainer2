@@ -42,10 +42,16 @@ abstract class MathCardsActivity : AppCompatActivity() {
         //equation.setOnClickListener { toggle() }
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
+
         pref = getSharedPreferences("fastmathtrainer",0)
+
         val gameMode = pref.getString("gameMode", "practice")
+
         val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
+        val practiceNotification : TextView = findViewById<TextView>(R.id.practiceNotification)
+
         if (gameMode.equals("timed")) {
+            practiceNotification.visibility = View.INVISIBLE
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start()
         }
@@ -53,6 +59,7 @@ abstract class MathCardsActivity : AppCompatActivity() {
             chronometer.visibility = View.INVISIBLE
             val score : TextView = findViewById<TextView>(R.id.score)
             score.visibility = View.INVISIBLE
+            practiceNotification.visibility = View.VISIBLE
         }
 
         createButtonListeners()
@@ -74,18 +81,6 @@ abstract class MathCardsActivity : AppCompatActivity() {
         // created, to briefly hint to the user that UI controls
         // are available.
         //delayedHide(100)
-    }
-
-    open protected fun randomInt(): Int {
-        val random = SecureRandom()
-        val difficulty = pref.getString("difficulty", "easy")
-        Log.i("MathCardsActivity.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
-        when (difficulty) {
-            "easy" -> return random.nextInt(9)
-            "medium" -> return random.nextInt(19)
-            "hard" -> return random.nextInt(29)
-            else -> return random.nextInt(9)
-        }
     }
 
     protected fun createButtonListeners() {

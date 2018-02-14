@@ -10,6 +10,7 @@
     <string name="division">Division</string>
     <string name="combination">Combination</string>
     <string name="settings">Settings</string>
+    <string name="savedSettings">Saved!</string>
 
     <!-- settings menu -->
     <string name="currentmode">Game mode</string>

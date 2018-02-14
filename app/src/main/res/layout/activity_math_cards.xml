@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -17,28 +18,30 @@
         android:orientation="horizontal"
         android:background="#82c4dd">
 
-        <GridLayout
+        <android.support.v7.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnCount="2"
-            android:rowCount="1"
-            android:orientation="horizontal">
+            app:columnCount="3"
+            app:rowCount="1"
+            app:orientation="horizontal">
 
             <Chronometer
                 android:id="@+id/chronometer"
-                android:layout_gravity="start"
+                app:layout_gravity="start"
                 android:text="@string/timertext"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
+                app:layout_columnWeight="1"
                 />
             <TextView
                 android:id="@+id/score"
-                android:layout_gravity="end"
+                app:layout_gravity="end"
                 android:text="@string/score"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
+                app:layout_columnWeight="1"
                 />
-        </GridLayout>
+        </android.support.v7.widget.GridLayout>
 
     </LinearLayout>
 
@@ -58,7 +61,7 @@
             android:keepScreenOn="true"
             android:text="@string/equation"
             android:textColor="#FFFFFF"
-            android:textSize="100sp"
+            android:textSize="75sp"
             android:textStyle="bold"/>
 
     </LinearLayout>

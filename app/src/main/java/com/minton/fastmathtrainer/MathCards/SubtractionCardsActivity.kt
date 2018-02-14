@@ -8,11 +8,14 @@ import com.minton.fastmathtrainer.R
  */
 class SubtractionCardsActivity : MathCardsActivity() {
 
+    val firstNumber : Number = Number()
+    val secondNumber : Number = Number()
+
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        var x = randomInt()
-        var y = randomInt()
+        var x = firstNumber.randomInt("subtraction", pref)
+        var y = secondNumber.randomInt("subtraction", pref)
         if (y > x) {
             var temp = x
             x = y

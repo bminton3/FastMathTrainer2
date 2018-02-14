@@ -3,12 +3,19 @@ package com.minton.fastmathtrainer.Menus
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import com.minton.fastmathtrainer.MathCards.*
 import com.minton.fastmathtrainer.R
+import android.view.animation.AlphaAnimation
+import android.widget.TextView
+
 
 class MainMenuActivity : AppCompatActivity() {
+
+    val settingsActivity = 420
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +58,25 @@ class MainMenuActivity : AppCompatActivity() {
         val settings : ImageButton = findViewById<ImageButton>(R.id.settings)
         settings.setOnClickListener {
             val settingsIntent = Intent(this, SettingsActivity::class.java)
-            this.startActivity(settingsIntent)
+            this.startActivityForResult(settingsIntent, settingsActivity)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == settingsActivity) {
+            val savedSettings: TextView = findViewById<TextView>(R.id.savedSettings)
+            savedSettings.visibility = View.VISIBLE
+            val fadeIn = AlphaAnimation(0.0f, 1.0f)
+            val fadeOut = AlphaAnimation(1.0f, 0.0f)
+            savedSettings.startAnimation(fadeIn)
+            savedSettings.startAnimation(fadeOut)
+            fadeIn.duration = 600
+            fadeIn.fillAfter = true
+            fadeOut.duration = 600
+            fadeOut.fillAfter = true
+            fadeOut.startOffset = 1000 + fadeIn.startOffset
+            savedSettings.visibility = View.INVISIBLE
+        }
+
     }
 }
