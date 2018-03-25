@@ -12,6 +12,8 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Button
 import android.widget.Chronometer
+import android.widget.LinearLayout
+import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
@@ -22,7 +24,7 @@ import java.security.SecureRandom
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-abstract class MathCardsActivity : AppCompatActivity() {
+abstract class MathCardsActivity : BaseActivity() {
 
     protected val mHideHandler = Handler()
     protected var total: Int = 0
@@ -43,15 +45,11 @@ abstract class MathCardsActivity : AppCompatActivity() {
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
+        val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
         pref = getSharedPreferences("fastmathtrainer",0)
-
         val gameMode = pref.getString("gameMode", "practice")
 
-        val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
-        val practiceNotification : TextView = findViewById<TextView>(R.id.practiceNotification)
-
         if (gameMode.equals("timed")) {
-            practiceNotification.visibility = View.INVISIBLE
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start()
         }
@@ -59,7 +57,6 @@ abstract class MathCardsActivity : AppCompatActivity() {
             chronometer.visibility = View.INVISIBLE
             val score : TextView = findViewById<TextView>(R.id.score)
             score.visibility = View.INVISIBLE
-            practiceNotification.visibility = View.VISIBLE
         }
 
         createButtonListeners()
@@ -162,15 +159,20 @@ abstract class MathCardsActivity : AppCompatActivity() {
     }
 
     protected fun updateScore(scoreNumber : Int) {
-        val gameMode = pref.getString("gameMode", "practice")
-        score.text = "Score : " + scoreNumber
-        if (scoreNumber == 10 && gameMode.equals("timed")) {
-            chronometer.stop()
-            val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
-            val intent = Intent(this, WinningScreenActivity::class.java)
-            intent.putExtra("MESSAGE", "You won!")
-            intent.putExtra("TIME", "Your time was " + elapsedMillis / 1000 + " seconds")
-            this.startActivityForResult(intent, 0)
+        try {
+            val gameMode = pref.getString("gameMode", "practice")
+            score.text = "Score : " + scoreNumber
+            if (scoreNumber == 10 && gameMode.equals("timed")) {
+                chronometer.stop()
+                val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
+                val intent = Intent(this, WinningScreenActivity::class.java)
+                intent.putExtra("MESSAGE", "You won!")
+                intent.putExtra("TIME", "Your time was " + elapsedMillis / 1000 + " seconds")
+                this.startActivityForResult(intent, 0)
+            }
+        }
+        catch (e : UninitializedPropertyAccessException) {
+            // idk
         }
     }
 

@@ -11,17 +11,35 @@ import com.minton.fastmathtrainer.MathCards.*
 import com.minton.fastmathtrainer.R
 import android.view.animation.AlphaAnimation
 import android.widget.TextView
+import com.minton.fastmathtrainer.Generic.BaseActivity
 
 
-class MainMenuActivity : AppCompatActivity() {
+class MainMenuActivity : BaseActivity() {
 
     val settingsActivity = 420
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_menu)
+        // set the bg color
+        var pref = getSharedPreferences("fastmathtrainer",0)
+        val gameMode = pref.getString("gameMode", "practice")
 
+        setContentView(R.layout.activity_main_menu)
         createButtonListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var pref = getSharedPreferences("fastmathtrainer",0)
+        // pref.putString("restartActivity", "true")
+        var restartActivity = pref.getString("restartActivity", "false")
+        if (restartActivity.equals("true")) {
+            var pref = getSharedPreferences("fastmathtrainer",0).edit()
+            pref.putString("restartActivity", "false")
+            pref.commit()
+            Log.i("MainMenuActivity", "recreating activity")
+            recreate()
+        }
     }
 
     open fun createButtonListeners() {
