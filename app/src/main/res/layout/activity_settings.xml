@@ -8,26 +8,44 @@
     android:orientation="vertical"
     tools:context="com.minton.fastmathtrainer.Menus.SettingsActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="false"
+        android:paddingTop="0px"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/currentmode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/pt_serif_caption"
         android:text="@string/currentmode"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
 
     <Switch
         android:id="@+id/gameModeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
         android:layout_below="@+id/currentmode"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/difficulty"
+        android:layout_alignEnd="@+id/difficulty"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
 
     <TextView
         android:id="@+id/practice"
@@ -36,12 +54,10 @@
         android:text="@string/practice"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_alignBaseline="@+id/gameModeSwitch"
         android:layout_alignBottom="@+id/gameModeSwitch"
-        android:layout_toLeftOf="@+id/gameModeSwitch"
-        android:layout_toStartOf="@+id/gameModeSwitch" />
+        android:layout_alignLeft="@+id/currentmode"
+        android:layout_alignStart="@+id/currentmode" />
 
     <TextView
         android:id="@+id/timed"
@@ -59,13 +75,14 @@
         android:id="@+id/difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="@string/difficulty"
+        android:layout_alignLeft="@+id/currentmode"
+        android:layout_alignStart="@+id/currentmode"
         android:layout_below="@+id/gameModeSwitch"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/pt_serif_caption"
+        android:text="@string/difficulty"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/radioButtonGroup"
@@ -73,26 +90,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/difficulty"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="40dp">
         <RadioButton
             android:id="@+id/easyRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/easy"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/currentmode"
-            android:layout_toStartOf="@+id/currentmode" />
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/mediumRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/easyRadioButton"
-            android:layout_toEndOf="@+id/easyRadioButton"
-            android:layout_toRightOf="@+id/easyRadioButton"
             android:text="@string/medium"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>
@@ -100,10 +111,7 @@
         <RadioButton
             android:id="@+id/hardRadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:layout_alignTop="@+id/mediumRadioButton"
-            android:layout_toEndOf="@+id/mediumRadioButton"
-            android:layout_toRightOf="@+id/mediumRadioButton"
+            android:layout_height="40dp"
             android:text="@string/hard"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>

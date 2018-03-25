@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="app_bg">#82c4dd</color>
-    <color name="app_bg_timed">#F1D35A</color>
+    <color name="app_bg_timed">#802323</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

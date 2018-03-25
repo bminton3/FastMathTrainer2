@@ -29,7 +29,9 @@
                 app:layout_gravity="start"
                 android:text="@string/timertext"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 app:layout_columnWeight="1"
                 />
             <TextView
@@ -37,7 +39,9 @@
                 app:layout_gravity="end"
                 android:text="@string/score"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
                 app:layout_columnWeight="1"
                 />
         </android.support.v7.widget.GridLayout>
@@ -59,7 +63,7 @@
             android:keepScreenOn="true"
             android:text="@string/equation"
             android:textColor="#FFFFFF"
-            android:textSize="75sp"
+            android:textSize="75dp"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -79,7 +83,7 @@
             android:keepScreenOn="true"
             android:text="@string/equation"
             android:textColor="#FFFFFF"
-            android:textSize="60sp"
+            android:textSize="60dp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -106,7 +110,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/one"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/two"
                     android:layout_toRightOf="@+id/one"
@@ -118,7 +122,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/two"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/three"
                     android:layout_height="match_parent"
@@ -128,7 +132,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/three"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
             </TableRow>
 
             <TableRow android:layout_weight="1" >
@@ -141,7 +145,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/four"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/five"
                     android:layout_height="match_parent"
@@ -152,7 +156,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/five"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/six"
                     android:layout_height="match_parent"
@@ -162,7 +166,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/six"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
@@ -174,7 +178,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/seven"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
 
                 <Button
                     android:id="@+id/eight"
@@ -186,7 +190,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/eight"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
 
                 <Button
                     android:id="@+id/nine"
@@ -197,7 +201,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/nine"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
@@ -208,7 +212,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/clear"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/zero"
                     android:layout_height="match_parent"
@@ -218,7 +222,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/zero"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
                 <Button
                     android:id="@+id/back"
                     android:layout_height="match_parent"
@@ -227,7 +231,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/back"
                     android:textColor="#2e355b"
-                    android:textSize="40sp"/>
+                    android:textSize="40dp"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
