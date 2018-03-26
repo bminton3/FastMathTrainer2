@@ -19,7 +19,7 @@
             android:theme="@style/FullscreenTheme" />
         -->
         <activity
-            android:name=".WinningScreenActivity"
+            android:name=".Generic.WinningScreenActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Menus.MainMenuActivity"

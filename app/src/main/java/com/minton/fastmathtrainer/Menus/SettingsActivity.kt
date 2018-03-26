@@ -9,7 +9,11 @@ import android.widget.*
 import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
 
-
+/**
+ *  TODO add game length setting and prompt user that's how many they need to answer.
+ *  TODO store user speed in a local DB and keep track of user progress
+ *  TODO have users sign in to compare their progress
+ */
 class SettingsActivity : BaseActivity() {
 
     protected lateinit var pref : SharedPreferences

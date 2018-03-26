@@ -27,6 +27,7 @@
     <string name="score">%1s</string>
 
     <!-- winning screen -->
+    <string name="results">Results:</string>
     <string name="message">%1s</string>
     <string name="reset">Start Over</string>
     <string name="menu">Main Menu</string>

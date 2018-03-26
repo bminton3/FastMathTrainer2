@@ -1,12 +1,11 @@
-package com.minton.fastmathtrainer
+package com.minton.fastmathtrainer.Generic
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
-import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.Menus.MainMenuActivity
+import com.minton.fastmathtrainer.R
 
 
 class WinningScreenActivity : BaseActivity() {

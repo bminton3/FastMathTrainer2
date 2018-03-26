@@ -3,21 +3,17 @@ package com.minton.fastmathtrainer.MathCards
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Button
 import android.widget.Chronometer
-import android.widget.LinearLayout
 import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
-import com.minton.fastmathtrainer.WinningScreenActivity
+import com.minton.fastmathtrainer.Generic.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
-import java.security.SecureRandom
 
 
 /**
@@ -29,6 +25,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected val mHideHandler = Handler()
     protected var total: Int = 0
     protected var scoreNumber: Int = 0
+    protected var totalAnswered: Int = 0
     protected lateinit var pref : SharedPreferences
 
     /**
@@ -141,9 +138,15 @@ abstract class MathCardsActivity : BaseActivity() {
         clearButton.setOnClickListener { answer.text = "" }
     }
 
+    /**
+     * When a number is entered, we come here to see if the length of the answer is equal to the
+     * length of the actual answer. If it is, we go ahead and check it. We store the old color
+     * value of the user's answer and set it so he'll see the default color for his next answer
+     */
     protected fun checkAnswer() {
         var oldColor : Int = answer.currentTextColor
         if (answer.text.toString().length == total.toString().length) {
+            totalAnswered++;
             if (answer.text.toString().toInt() == total) {
                 answer.setTextColor(Color.GREEN)
                 updateEquation()
@@ -162,12 +165,15 @@ abstract class MathCardsActivity : BaseActivity() {
         try {
             val gameMode = pref.getString("gameMode", "practice")
             score.text = "Score : " + scoreNumber
-            if (scoreNumber == 10 && gameMode.equals("timed")) {
+            if (scoreNumber == 15 && gameMode.equals("timed")) {
                 chronometer.stop()
                 val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
                 val intent = Intent(this, WinningScreenActivity::class.java)
-                intent.putExtra("MESSAGE", "You won!")
-                intent.putExtra("TIME", "Your time was " + elapsedMillis / 1000 + " seconds")
+                val score : Double = (scoreNumber.toDouble()/totalAnswered.toDouble()) * 100
+                intent.putExtra("MESSAGE",  "" + elapsedMillis / 1000 + " seconds")
+                intent.putExtra("TIME", "" + "%.2f".format(score)  + "% correct")
+                this.scoreNumber = 0;
+                this.totalAnswered = 0;
                 this.startActivityForResult(intent, 0)
             }
         }
