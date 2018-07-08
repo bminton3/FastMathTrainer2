@@ -10,8 +10,8 @@ import java.security.SecureRandom
  */
 class DivisionCardsActivity : MathCardsActivity() {
 
-    val firstNumber : Number = Number()
-    val secondNumber : Number = Number()
+    private val firstNumber : Number = Number()
+    private val secondNumber : Number = Number()
 
     /** TODO figure out division */
     override fun updateEquation() {

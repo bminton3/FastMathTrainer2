@@ -9,9 +9,9 @@ import java.security.SecureRandom
  */
 class CombinationCardsActivity : MathCardsActivity() {
 
-    val operation = arrayOf("addition", "subtraction", "multiplication", "division")
-    val firstNumber : Number = Number()
-    val secondNumber : Number = Number()
+    private val operation = arrayOf("addition", "subtraction", "multiplication", "division")
+    private val firstNumber : Number = Number()
+    private val secondNumber : Number = Number()
 
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
@@ -21,8 +21,8 @@ class CombinationCardsActivity : MathCardsActivity() {
         val operationToShow = operation.get(operationSelection)
 
         if (operationToShow.equals("addition")) {
-            var x = firstNumber.randomInt(operationToShow, pref)
-            var y = secondNumber.randomInt(operationToShow, pref)
+            val x = firstNumber.randomInt(operationToShow, pref)
+            val y = secondNumber.randomInt(operationToShow, pref)
             total = x+y
             text.text = x.toString() + " + " + y.toString()
         }
@@ -38,13 +38,13 @@ class CombinationCardsActivity : MathCardsActivity() {
             text.text = x.toString() + " - " + y.toString()
         }
         else if (operationToShow.equals("multiplication")) {
-            var x = firstNumber.randomInt(operationToShow, pref)
-            var y = secondNumber.randomInt(operationToShow, pref)
+            val x = firstNumber.randomInt(operationToShow, pref)
+            val y = secondNumber.randomInt(operationToShow, pref)
             total = x*y
             text.text = x.toString() + " x " + y.toString()
         }
         else {
-            var x = firstNumber.randomInt(operationToShow, pref)
+            val x = firstNumber.randomInt(operationToShow, pref)
             var y = secondNumber.randomInt(operationToShow, pref)
             // avoid divide by zero
             if (y == 0) {

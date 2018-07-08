@@ -8,8 +8,8 @@ import com.minton.fastmathtrainer.R
  */
 class MultiplicationCardsActivity : MathCardsActivity() {
 
-    val firstNumber : Number = Number()
-    val secondNumber : Number = Number()
+    private val firstNumber : Number = Number()
+    private val secondNumber : Number = Number()
 
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)

@@ -11,12 +11,19 @@ import com.minton.fastmathtrainer.MathCards.*
 import com.minton.fastmathtrainer.R
 import android.view.animation.AlphaAnimation
 import android.widget.TextView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Generic.BaseActivity
 
-
+/**
+ * MAIN activity
+ */
 class MainMenuActivity : BaseActivity() {
 
     val settingsActivity = 420
+
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +31,15 @@ class MainMenuActivity : BaseActivity() {
         var pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString("gameMode", "practice")
 
+        MobileAds.initialize(this, "ca-app-pub-7040315646746005~7541355972");
+
         setContentView(R.layout.activity_main_menu)
         createButtonListeners()
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().addTestDevice("0594CFBC78420C453E9CC3FE1892FF45").build()
+        mAdView.loadAd(adRequest)
+
     }
 
     override fun onResume() {
