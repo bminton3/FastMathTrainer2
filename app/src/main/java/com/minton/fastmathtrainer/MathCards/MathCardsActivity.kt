@@ -14,6 +14,9 @@ import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Generic.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
+import android.media.MediaPlayer
+
+
 
 
 /**
@@ -27,6 +30,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected var scoreNumber: Int = 0
     protected var totalAnswered: Int = 0
     protected lateinit var pref : SharedPreferences
+    protected lateinit var winningBing : MediaPlayer
 
     /**
      * Maybe this is the main method
@@ -57,6 +61,7 @@ abstract class MathCardsActivity : BaseActivity() {
         }
 
         createButtonListeners()
+        winningBing = MediaPlayer.create(applicationContext, R.raw.shatiabing)
     }
     /**
      * The stuff that runs right after the main method?
@@ -68,7 +73,7 @@ abstract class MathCardsActivity : BaseActivity() {
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
-        score.text = "Score : " + scoreNumber
+        score.text = "OldScore : " + scoreNumber
         answer.text = ""
 
         // Trigger the initial hide() shortly after the activity has been
@@ -140,8 +145,10 @@ abstract class MathCardsActivity : BaseActivity() {
 
     /**
      * When a number is entered, we come here to see if the length of the answer is equal to the
-     * length of the actual answer. If it is, we go ahead and check it. We store the old color
-     * value of the user's answer and set it so he'll see the default color for his next answer
+     * length of the actual answer. If it is, we go ahead and check it. To create a color blink
+     * effect, we store the old color value of the user's answer, show the right/wrong answer color,
+     * then reset the old color.
+     * TODO add sounds
      */
     protected fun checkAnswer() {
         var oldColor : Int = answer.currentTextColor
@@ -149,6 +156,7 @@ abstract class MathCardsActivity : BaseActivity() {
             totalAnswered++;
             if (answer.text.toString().toInt() == total) {
                 answer.setTextColor(Color.GREEN)
+                winningBing.start()
                 updateEquation()
                 clearTextSetColor(oldColor)
                 scoreNumber++
@@ -164,7 +172,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected fun updateScore(scoreNumber : Int) {
         try {
             val gameMode = pref.getString("gameMode", "practice")
-            score.text = "Score : " + scoreNumber
+            score.text = "OldScore : " + scoreNumber
             if (scoreNumber == 15 && gameMode.equals("timed")) {
                 chronometer.stop()
                 val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
