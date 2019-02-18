@@ -6,7 +6,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:background="@drawable/mathbg"
     tools:context="com.minton.fastmathtrainer.Menus.MainMenuActivity">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,118 +47,149 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".2">
+        android:layout_weight=".2"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginStart="128dp"
+            android:text="@string/title1"
+            android:textColor="#CCFFFF"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10sp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="top"
             android:includeFontPadding="false"
             android:paddingTop="0px"
             android:text="@string/title"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#CCFFFF"
             android:textSize="40dp"
-            android:textStyle="bold|italic" />
-    </LinearLayout>
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".6">
+        android:layout_weight=".6"
+        android:layout_marginTop="45dp">
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="*"
-            android:weightSum="4" >
+            android:layout_margin="15dp"
+            android:weightSum="4">
 
-            <Button
-                android:id="@+id/add"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
-                android:fontFamily="@font/pt_serif_caption"
-                android:gravity="left"
-                android:paddingLeft="40dp"
-                android:text="@string/addition"
-                android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40dp" />
+            <TableRow android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/subtract"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
-                android:fontFamily="@font/pt_serif_caption"
-                android:gravity="left"
-                android:paddingLeft="40dp"
-                android:text="@string/subtraction"
-                android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40dp" />
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/metallicbuttonstate"
+                    android:gravity="center"
+                    android:text="@string/addition"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    app:fontFamily="@font/pt_serif_caption" />
 
-            <Button
-                android:id="@+id/multiplication"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
-                android:fontFamily="@font/pt_serif_caption"
-                android:gravity="left"
-                android:paddingLeft="40dp"
-                android:text="@string/multiplication"
-                android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40dp" />
+                <Button
+                    android:id="@+id/subtract"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/metallicbuttonstate"
+                    android:gravity="center"
+                    android:text="@string/subtraction"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    app:fontFamily="@font/pt_serif_caption" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/division"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
-                android:fontFamily="@font/pt_serif_caption"
-                android:gravity="left"
-                android:paddingLeft="40dp"
-                android:text="@string/division"
-                android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40dp" />
+            <TableRow android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/multiplication"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/metallicbuttonstate"
+                    android:fontFamily="@font/pt_serif_caption"
+                    android:gravity="center"
+                    android:text="@string/multiplication"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
+
+                <Button
+                    android:id="@+id/division"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/metallicbuttonstate"
+                    android:fontFamily="@font/pt_serif_caption"
+                    android:gravity="center"
+                    android:text="@string/division"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
+            </TableRow>
+
 
             <Button
                 android:id="@+id/combo"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
-                android:background="@drawable/flatbuttonstate"
+                android:background="@drawable/metallicbuttonstate"
                 android:fontFamily="@font/pt_serif_caption"
-                android:gravity="left"
-                android:paddingLeft="40dp"
+                android:gravity="center"
                 android:text="@string/combination"
+                android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="40dp" />
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp" />
+
+            <!--
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80sp"
                 ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-            </com.google.android.gms.ads.AdView>
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+                -->
         </TableLayout>
-
 
 
     </LinearLayout>
