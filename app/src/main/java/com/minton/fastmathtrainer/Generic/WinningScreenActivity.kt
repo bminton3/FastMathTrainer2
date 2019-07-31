@@ -43,6 +43,11 @@ class WinningScreenActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        val addIntent = Intent(this, MainMenuActivity::class.java)
+        this.startActivity(addIntent)
+    }
+
     private fun fillWinningTextValues() {
         val intent = intent
 

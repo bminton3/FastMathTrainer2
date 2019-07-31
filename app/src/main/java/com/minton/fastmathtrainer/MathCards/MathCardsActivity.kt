@@ -156,7 +156,7 @@ abstract class MathCardsActivity : BaseActivity() {
             totalAnswered++;
             if (answer.text.toString().toInt() == total) {
                 answer.setTextColor(Color.GREEN)
-                winningBing.start()
+                //winningBing.start() TODO update bing noise
                 updateEquation()
                 clearTextSetColor(oldColor)
                 scoreNumber++
