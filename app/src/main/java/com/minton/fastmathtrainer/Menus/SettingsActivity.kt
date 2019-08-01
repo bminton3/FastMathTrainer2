@@ -1,13 +1,13 @@
 package com.minton.fastmathtrainer.Menus
 
 import android.content.SharedPreferences
-import android.support.v7.app.AppCompatActivity
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.widget.*
 import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
+import com.minton.fastmathtrainer.Style.StyleHandler
 
 /**
  *  TODO add game length setting and prompt user that's how many they need to answer.
@@ -29,6 +29,14 @@ class SettingsActivity : BaseActivity() {
         setSavedDifficulty(difficulty)
         setGameMode(gameMode)
         createSwitchListener();
+        val relativeLayout = findViewById(R.id.baseLayout) as RelativeLayout
+        if (!gameMode.equals("timed")) {
+            StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
+        }
+        else{
+            relativeLayout.setBackgroundResource(0)
+        }
+
     }
 
     override fun onResume() {

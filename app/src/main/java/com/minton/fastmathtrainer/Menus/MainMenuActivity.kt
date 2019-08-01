@@ -19,6 +19,7 @@ import com.minton.fastmathtrainer.Generic.BaseActivity
 import android.graphics.drawable.AnimationDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.widget.LinearLayout
+import com.minton.fastmathtrainer.Style.StyleHandler
 
 
 /**
@@ -39,13 +40,7 @@ class MainMenuActivity : BaseActivity() {
 //        MobileAds.initialize(this, "ca-app-pub-7040315646746005~7541355972");
 
         setContentView(R.layout.activity_main_menu)
-
-        val linearLayout = findViewById(R.id.baseLayout) as LinearLayout
-        val animationDrawable = linearLayout.background as AnimationDrawable
-        animationDrawable.setEnterFadeDuration(2000)
-        animationDrawable.setExitFadeDuration(4000)
-        animationDrawable.start()
-
+        StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
         createButtonListeners()
 
 //        mAdView = findViewById(R.id.adView)

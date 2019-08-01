@@ -15,8 +15,8 @@ import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Generic.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
 import android.media.MediaPlayer
-
-
+import android.widget.LinearLayout
+import com.minton.fastmathtrainer.Style.StyleHandler
 
 
 /**
@@ -41,6 +41,7 @@ abstract class MathCardsActivity : BaseActivity() {
         setContentView(R.layout.activity_math_cards)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
         // Set up the user interaction to manually show or hide the system UI.
         //equation.setOnClickListener { toggle() }
 
@@ -49,19 +50,22 @@ abstract class MathCardsActivity : BaseActivity() {
         val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
         pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString("gameMode", "practice")
+        val linearLayout = findViewById(R.id.baseLayout) as LinearLayout
 
         if (gameMode.equals("timed")) {
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start()
+            linearLayout.setBackgroundResource(0)
         }
         else {
             chronometer.visibility = View.INVISIBLE
             val score : TextView = findViewById<TextView>(R.id.score)
             score.visibility = View.INVISIBLE
+            linearLayout.setBackgroundResource(R.drawable.android_gradient_list)
         }
-
+        StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
         createButtonListeners()
-        winningBing = MediaPlayer.create(applicationContext, R.raw.shatiabing)
+        //winningBing = MediaPlayer.create(applicationContext, R.raw.shatiabing)
     }
     /**
      * The stuff that runs right after the main method?
