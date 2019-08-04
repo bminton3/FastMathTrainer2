@@ -14,15 +14,10 @@ class WinningScreenActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        // set the bg color
+        // set the bg color - this used to set the bg color. Not anymore. Can we remove?
         var pref = getSharedPreferences("fastmathtrainer",0)
-        val gameMode = pref.getString("gameMode", "practice")
-        if (gameMode.equals("timed")) {
-            super.setTheme(R.style.TimedTheme)
-        }
-        else {
-            super.setTheme(R.style.AppTheme)
-        }
+        val gameMode = pref.getString(gameMode, "practice")
+
         setContentView(R.layout.activity_winning_screen)
 
         fillWinningTextValues()

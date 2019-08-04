@@ -1,4 +1,4 @@
-//package com.minton.fastmathtrainer.Scoring
+//package com.minton.fastmathtrainer.ScoringDB
 //
 //import android.arch.persistence.room.Database
 //import android.arch.persistence.room.Room

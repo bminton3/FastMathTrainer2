@@ -21,6 +21,10 @@
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
+    <string name="duration">Timed Game Length</string>
+    <string name="fifteen">15s</string>
+    <string name="thirty">30s</string>
+    <string name="fortyfive">45s</string>
 
     <!-- math cards -->
     <string name="equation">%1s</string>

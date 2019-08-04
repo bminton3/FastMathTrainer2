@@ -16,8 +16,11 @@ import com.minton.fastmathtrainer.Generic.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
 import android.media.MediaPlayer
 import android.widget.LinearLayout
+import com.minton.fastmathtrainer.Generic.gameDuration
+import com.minton.fastmathtrainer.Generic.gameMode
 import com.minton.fastmathtrainer.Style.StyleHandler
-
+import java.util.*
+import kotlin.concurrent.schedule
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -49,12 +52,15 @@ abstract class MathCardsActivity : BaseActivity() {
 
         val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
         pref = getSharedPreferences("fastmathtrainer",0)
-        val gameMode = pref.getString("gameMode", "practice")
+        val gameMode = pref.getString(gameMode, "practice")
         val linearLayout = findViewById(R.id.baseLayout) as LinearLayout
 
         if (gameMode.equals("timed")) {
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start()
+
+
+
             linearLayout.setBackgroundResource(R.drawable.android_gradient_timed_play)
         }
         else {
@@ -67,6 +73,12 @@ abstract class MathCardsActivity : BaseActivity() {
         createButtonListeners()
         //winningBing = MediaPlayer.create(applicationContext, R.raw.shatiabing)
     }
+
+    private fun startTimer(gameDuration : Int) {
+        Timer("TimedPlay", false).schedule(gameDuration.toLong()) {
+            checkAnswer()
+        }
+    }
     /**
      * The stuff that runs right after the main method?
      */
@@ -77,7 +89,7 @@ abstract class MathCardsActivity : BaseActivity() {
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
-        score.text = "OldScore : " + scoreNumber
+        score.text = "Score : " + scoreNumber
         answer.text = ""
 
         // Trigger the initial hide() shortly after the activity has been
@@ -175,7 +187,9 @@ abstract class MathCardsActivity : BaseActivity() {
 
     protected fun updateScore(scoreNumber : Int) {
         try {
-            val gameMode = pref.getString("gameMode", "practice")
+            val gameMode = pref.getString(gameMode, "practice")
+            val duration = pref.getInt(gameDuration, 15)
+
             score.text = "Score : " + scoreNumber
             if (scoreNumber == 15 && gameMode.equals("timed")) {
                 chronometer.stop()

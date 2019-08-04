@@ -1,13 +1,13 @@
 package com.minton.fastmathtrainer.Menus
 
 import android.content.SharedPreferences
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import com.minton.fastmathtrainer.Generic.BaseActivity
+import com.minton.fastmathtrainer.Generic.*
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Style.StyleHandler
+import kotlinx.android.synthetic.main.activity_settings.*
 
 /**
  *  TODO add game length setting and prompt user that's how many they need to answer.
@@ -22,13 +22,15 @@ class SettingsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         pref = getSharedPreferences("fastmathtrainer",0)
 
-        val gameMode = pref.getString("gameMode", "practice")
-        val difficulty = pref.getString("difficulty", "easy")
+        val gameMode = pref.getString(gameMode, "practice")
+        val difficulty = pref.getString(gameDifficulty, gameDifficultyEasy)
+        val gameDuration = pref.getInt(gameDuration, gameDurationShort)
 
         setContentView(R.layout.activity_settings)
-        setSavedDifficulty(difficulty)
-        setGameMode(gameMode)
-        createSwitchListener();
+        setDifficultyRadioButtonFromPrefs(difficulty)
+        setGameModeSwitchFromPrefs(gameMode)
+        setGameDurationRadioButtonFromPrefs(gameDuration)
+        createSwitchListener()
         val relativeLayout = findViewById(R.id.baseLayout) as RelativeLayout
         if (!gameMode.equals("timed")) {
 
@@ -50,21 +52,39 @@ class SettingsActivity : BaseActivity() {
         val difficultySelected = difficultySetting.checkedRadioButtonId
         var pref = getSharedPreferences("fastmathtrainer",0).edit()
         when (difficultySelected) {
-            R.id.easyRadioButton -> pref.putString("difficulty", "easy")
-            R.id.mediumRadioButton -> pref.putString("difficulty", "medium")
-            R.id.hardRadioButton -> pref.putString("difficulty", "hard")
+            R.id.easyRadioButton -> pref.putString(gameDifficulty, gameDifficultyEasy)
+            R.id.mediumRadioButton -> pref.putString(gameDifficulty, gameDifficultyMedium)
+            R.id.hardRadioButton -> pref.putString(gameDifficulty, gameDifficultyHard)
+        }
+
+        val durationSetting : RadioGroup = findViewById<RadioGroup>(R.id.durationRadioButtonGroup)
+        when (durationSetting.checkedRadioButtonId) {
+            R.id.shortDurationRadioButton -> pref.putInt(gameDuration, gameDurationShort)
+            R.id.mediumDurationRadioButton -> pref.putInt(gameDuration, gameDurationMedium)
+            R.id.longDurationRadioButton -> pref.putInt(gameDuration, gameDurationLong)
         }
 
         pref.commit()
         Log.i("onPause() called.", " Saving state to " + pref)
     }
 
-    private fun setGameMode(gameMode : String) {
+    private fun setGameModeSwitchFromPrefs(gameMode : String) {
         var gameModeSetting: Switch = findViewById<Switch>(R.id.gameModeSwitch)
         gameModeSetting.isChecked = gameMode.equals("timed")
     }
 
-    private fun setSavedDifficulty(difficulty : String) {
+    private fun setGameDurationRadioButtonFromPrefs(duration : Int) {
+        var defaultSetting : RadioButton? = null
+        when (duration) {
+            15 -> defaultSetting = findViewById<RadioButton>(R.id.shortDurationRadioButton)
+            30 -> defaultSetting = findViewById<RadioButton>(R.id.mediumDurationRadioButton)
+            45 -> defaultSetting = findViewById<RadioButton>(R.id.longDurationRadioButton)
+            else -> defaultSetting = findViewById<RadioButton>(R.id.shortDurationRadioButton)
+        }
+        defaultSetting!!.setChecked(true)
+    }
+
+    private fun setDifficultyRadioButtonFromPrefs(difficulty : String) {
         var defaultSetting : RadioButton? = null
         when (difficulty) {
             "easy" -> defaultSetting = findViewById<RadioButton>(R.id.easyRadioButton)
@@ -82,10 +102,10 @@ class SettingsActivity : BaseActivity() {
             var pref = getSharedPreferences("fastmathtrainer",0).edit()
             if (gameModeSetting.isChecked) {
                 // pref.putString("difficulty", "easy")
-                pref.putString("gameMode", "timed")
+                pref.putString(gameMode, "timed")
             }
             else {
-                pref.putString("gameMode", "practice")
+                pref.putString(gameMode, "practice")
             }
             pref.putString("restartActivity", "true")
             pref.commit()

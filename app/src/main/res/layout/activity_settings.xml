@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:text="@string/easy"
             android:textColor="#FFFFFF"
+            android:padding="5dp"
             android:textStyle="bold" />
 
         <RadioButton
@@ -107,6 +108,7 @@
             android:layout_height="wrap_content"
             android:text="@string/medium"
             android:textColor="#FFFFFF"
+            android:padding="5dp"
             android:textStyle="bold"/>
 
         <RadioButton
@@ -115,8 +117,55 @@
             android:layout_height="40dp"
             android:text="@string/hard"
             android:textColor="#FFFFFF"
+            android:padding="5dp"
             android:textStyle="bold"/>
     </RadioGroup>
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentmode"
+        android:layout_alignStart="@+id/currentmode"
+        android:layout_below="@+id/radioButtonGroup"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/pt_serif_caption"
+        android:text="@string/duration"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
 
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/durationRadioButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/duration"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="40dp">
+        <RadioButton
+            android:id="@+id/shortDurationRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fifteen"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"
+            android:textStyle="bold" />
 
+        <RadioButton
+            android:id="@+id/mediumDurationRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thirty"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/longDurationRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/fortyfive"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+    </RadioGroup>
 </RelativeLayout>

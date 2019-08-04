@@ -12,7 +12,7 @@ open class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         var pref = getSharedPreferences("fastmathtrainer",0)
-        val gameMode = pref.getString("gameMode", "practice")
+        val gameMode = pref.getString(gameMode, "practice")
         Log.i("BaseActivity", "game mode: " + gameMode)
         if (gameMode.equals("timed")) {
             setTheme(R.style.TimedTheme)

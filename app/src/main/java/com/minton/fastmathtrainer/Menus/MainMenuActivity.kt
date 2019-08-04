@@ -15,6 +15,8 @@ import android.widget.TextView
 //import com.google.android.gms.ads.AdView
 //import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Generic.BaseActivity
+import com.minton.fastmathtrainer.Generic.gameMode
+import com.minton.fastmathtrainer.Generic.settingsActivity
 
 import com.minton.fastmathtrainer.Style.StyleHandler
 
@@ -24,7 +26,6 @@ import com.minton.fastmathtrainer.Style.StyleHandler
  */
 class MainMenuActivity : BaseActivity() {
 
-    val settingsActivity = 420
 
 //    lateinit var mAdView : AdView
 
@@ -32,7 +33,7 @@ class MainMenuActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         // set the bg color
         var pref = getSharedPreferences("fastmathtrainer",0)
-        val gameMode = pref.getString("gameMode", "practice")
+        val gameMode = pref.getString(gameMode, "practice")
 
 //        MobileAds.initialize(this, "ca-app-pub-7040315646746005~7541355972");
 
