@@ -6,6 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:background="@drawable/android_gradient_list"
     tools:context="com.minton.fastmathtrainer.Generic.WinningScreenActivity">
 
     <LinearLayout
@@ -85,21 +86,21 @@
                 android:layout_width="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/flatbuttonstate"
+                android:background="@drawable/metallicbuttonstate"
                 android:text="@string/menu"
                 android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="20dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"/>
             <Button
                 android:id="@+id/reset"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/flatbuttonstate"
+                android:background="@drawable/metallicbuttonstate"
                 android:text="@string/reset"
                 android:textAllCaps="false"
-                android:textColor="#2e355b"
-                android:textSize="20dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"/>
         </TableRow>
         </TableLayout>
     </LinearLayout>

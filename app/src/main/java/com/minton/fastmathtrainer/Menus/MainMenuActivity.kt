@@ -16,9 +16,6 @@ import android.widget.TextView
 //import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Generic.BaseActivity
 
-import android.graphics.drawable.AnimationDrawable;
-import android.support.constraint.ConstraintLayout;
-import android.widget.LinearLayout
 import com.minton.fastmathtrainer.Style.StyleHandler
 
 

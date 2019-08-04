@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.minton.fastmathtrainer.Menus.MainMenuActivity
 import com.minton.fastmathtrainer.R
+import com.minton.fastmathtrainer.Style.StyleHandler
 
 
 class WinningScreenActivity : BaseActivity() {
@@ -28,6 +29,7 @@ class WinningScreenActivity : BaseActivity() {
 
         val callingActivity = callingActivity.className
 
+        StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
 
         /** buttons - need a better way to code this */
         val menu : Button = findViewById<Button>(R.id.menu)

@@ -31,12 +31,13 @@ class SettingsActivity : BaseActivity() {
         createSwitchListener();
         val relativeLayout = findViewById(R.id.baseLayout) as RelativeLayout
         if (!gameMode.equals("timed")) {
-            StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
+
+            relativeLayout.setBackgroundResource(R.drawable.android_gradient_list)
         }
         else{
-            relativeLayout.setBackgroundResource(0)
+            relativeLayout.setBackgroundResource(R.drawable.android_gradient_timed_play)
         }
-
+        StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
     }
 
     override fun onResume() {

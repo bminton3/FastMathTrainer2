@@ -176,7 +176,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected fun updateScore(scoreNumber : Int) {
         try {
             val gameMode = pref.getString("gameMode", "practice")
-            score.text = "OldScore : " + scoreNumber
+            score.text = "Score : " + scoreNumber
             if (scoreNumber == 15 && gameMode.equals("timed")) {
                 chronometer.stop()
                 val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
