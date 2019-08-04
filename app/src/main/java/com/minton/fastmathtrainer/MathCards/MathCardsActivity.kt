@@ -55,7 +55,7 @@ abstract class MathCardsActivity : BaseActivity() {
         if (gameMode.equals("timed")) {
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start()
-            linearLayout.setBackgroundResource(0)
+            linearLayout.setBackgroundResource(R.drawable.android_gradient_timed_play)
         }
         else {
             chronometer.visibility = View.INVISIBLE

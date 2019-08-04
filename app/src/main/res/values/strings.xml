@@ -44,7 +44,7 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
-    <string name="clear">C</string>
-    <string name="back">\u003C</string>
+    <string name="clear">Clear</string>
+    <string name="back">◄</string>
     <string name="title_activity_base">BaseActivity</string>
 </resources>

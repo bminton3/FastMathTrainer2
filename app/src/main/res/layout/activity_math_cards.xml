@@ -213,7 +213,7 @@
                     android:background="@drawable/flatbuttonstate"
                     android:text="@string/clear"
                     android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textSize="28sp"/>
                 <Button
                     android:id="@+id/zero"
                     android:layout_height="match_parent"
