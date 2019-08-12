@@ -18,7 +18,7 @@ class Number {
                 while (nextRandomInt == lastRandomNumber) {
                     nextRandomInt = random.nextInt(bound)
                 }
-                Log.i("Number.generateFreshRandom()", "last random int:" + lastRandomNumber + " and next random int:" + nextRandomInt)
+                //Log.i("Number.generateFreshRandom()", "last random int:" + lastRandomNumber + " and next random int:" + nextRandomInt)
                 lastRandomNumber = nextRandomInt
 
         return nextRandomInt
@@ -27,7 +27,7 @@ class Number {
     public fun randomInt(type: String, pref : SharedPreferences): Int {
         val random = SecureRandom()
         val difficulty = pref.getString("difficulty", "easy")
-        Log.i("Number.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
+        //Log.i("Number.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
         when (difficulty) {
             "easy" -> {
                 when (type) {

@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Menus.MainMenuActivity
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Style.StyleHandler
 
 
 class WinningScreenActivity : BaseActivity() {
+
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +44,12 @@ class WinningScreenActivity : BaseActivity() {
             val addIntent = Intent(this, Class.forName(callingActivity))
             this.startActivity(addIntent)
         }
+
+        // load ads
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onBackPressed() {

@@ -11,9 +11,9 @@ import com.minton.fastmathtrainer.MathCards.*
 import com.minton.fastmathtrainer.R
 import android.view.animation.AlphaAnimation
 import android.widget.TextView
-//import com.google.android.gms.ads.AdRequest
-//import com.google.android.gms.ads.AdView
-//import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdRequest
 import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.Generic.gameMode
 import com.minton.fastmathtrainer.Generic.settingsActivity
@@ -26,8 +26,7 @@ import com.minton.fastmathtrainer.Style.StyleHandler
  */
 class MainMenuActivity : BaseActivity() {
 
-
-//    lateinit var mAdView : AdView
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,16 +34,15 @@ class MainMenuActivity : BaseActivity() {
         var pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString(gameMode, "practice")
 
-//        MobileAds.initialize(this, "ca-app-pub-7040315646746005~7541355972");
-
         setContentView(R.layout.activity_main_menu)
         StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
         createButtonListeners()
 
-//        mAdView = findViewById(R.id.adView)
-//        val adRequest = AdRequest.Builder().addTestDevice("0594CFBC78420C453E9CC3FE1892FF45").build()
-//        mAdView.loadAd(adRequest)
-
+        // load ads
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onResume() {
@@ -56,7 +54,7 @@ class MainMenuActivity : BaseActivity() {
             var pref = getSharedPreferences("fastmathtrainer",0).edit()
             pref.putString("restartActivity", "false")
             pref.commit()
-            Log.i("MainMenuActivity", "recreating activity")
+            //Log.i("MainMenuActivity", "recreating activity")
             recreate()
         }
     }

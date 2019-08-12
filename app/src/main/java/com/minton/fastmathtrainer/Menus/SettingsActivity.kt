@@ -4,6 +4,9 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Generic.*
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Style.StyleHandler
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_settings.*
 class SettingsActivity : BaseActivity() {
 
     protected lateinit var pref : SharedPreferences
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +44,11 @@ class SettingsActivity : BaseActivity() {
             relativeLayout.setBackgroundResource(R.drawable.android_gradient_timed_play)
         }
         StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
+        // load ads
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onResume() {
@@ -65,7 +74,7 @@ class SettingsActivity : BaseActivity() {
         }
 
         pref.commit()
-        Log.i("onPause() called.", " Saving state to " + pref)
+        //Log.i("onPause() called.", " Saving state to " + pref)
     }
 
     private fun setGameModeSwitchFromPrefs(gameMode : String) {
