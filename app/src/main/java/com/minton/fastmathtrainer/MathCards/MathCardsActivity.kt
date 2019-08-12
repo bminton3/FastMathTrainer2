@@ -18,6 +18,7 @@ import android.util.Log
 import android.widget.LinearLayout
 import com.minton.fastmathtrainer.Generic.gameDuration
 import com.minton.fastmathtrainer.Generic.gameMode
+import com.minton.fastmathtrainer.Menus.MainMenuActivity
 import com.minton.fastmathtrainer.Style.StyleHandler
 import kotlin.math.roundToInt
 
@@ -33,6 +34,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected var totalAnswered: Int = 0
     protected lateinit var pref : SharedPreferences
     protected lateinit var winningBing : MediaPlayer
+    private lateinit var countdownTimer: CountDownTimer
 
     /**
      * Maybe this is the main method
@@ -42,7 +44,6 @@ abstract class MathCardsActivity : BaseActivity() {
 
         setContentView(R.layout.activity_math_cards)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         // Set up the user interaction to manually show or hide the system UI.
         //equation.setOnClickListener { toggle() }
@@ -203,7 +204,7 @@ abstract class MathCardsActivity : BaseActivity() {
     }
 
     private fun startTimer(timeInMillis : Long){
-        object : CountDownTimer(timeInMillis, 1000) {
+        countdownTimer = object : CountDownTimer(timeInMillis, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
                 timer.setText((millisUntilFinished / 1000).toString())
@@ -215,7 +216,12 @@ abstract class MathCardsActivity : BaseActivity() {
         }.start()
     }
 
-    
+    override fun onBackPressed() {
+        countdownTimer.cancel()
+        val addIntent = Intent(this, MainMenuActivity::class.java)
+        this.startActivity(addIntent)
+    }
+
     /**
      * This is implemented by each math card type
      */
