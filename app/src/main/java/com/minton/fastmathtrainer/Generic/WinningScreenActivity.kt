@@ -12,8 +12,9 @@ import com.minton.fastmathtrainer.Style.StyleHandler
 class WinningScreenActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
+
+        val intent = intent
         // set the bg color - this used to set the bg color. Not anymore. Can we remove?
         var pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString(gameMode, "practice")
@@ -22,7 +23,7 @@ class WinningScreenActivity : BaseActivity() {
 
         fillWinningTextValues()
 
-        val callingActivity = callingActivity.className
+        val callingActivity = intent.getStringExtra("CALLINGACTIVITY")
 
         StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
 
@@ -50,11 +51,14 @@ class WinningScreenActivity : BaseActivity() {
 
         val message = intent.getStringExtra("MESSAGE")
         val time = intent.getStringExtra("TIME")
+        val totalscore = intent.getStringExtra("TOTALSCORE")
 
         val messageText: TextView = findViewById<TextView>(R.id.message)
         val timeText: TextView = findViewById<TextView>(R.id.time)
+        val totalscoreText: TextView = findViewById<TextView>(R.id.totalscore)
 
         messageText.text = message
         timeText.text = time
+        totalscoreText.text = totalscore
     }
 }

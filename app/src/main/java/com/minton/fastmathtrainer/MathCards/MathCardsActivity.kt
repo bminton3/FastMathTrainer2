@@ -5,22 +5,21 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.os.SystemClock
 import android.view.View
 import android.widget.TextView
 import android.widget.Button
-import android.widget.Chronometer
 import com.minton.fastmathtrainer.Generic.BaseActivity
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Generic.WinningScreenActivity
 import kotlinx.android.synthetic.main.activity_math_cards.*
 import android.media.MediaPlayer
+import android.os.CountDownTimer
+import android.util.Log
 import android.widget.LinearLayout
 import com.minton.fastmathtrainer.Generic.gameDuration
 import com.minton.fastmathtrainer.Generic.gameMode
 import com.minton.fastmathtrainer.Style.StyleHandler
-import java.util.*
-import kotlin.concurrent.schedule
+import kotlin.math.roundToInt
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -30,7 +29,7 @@ abstract class MathCardsActivity : BaseActivity() {
 
     protected val mHideHandler = Handler()
     protected var total: Int = 0
-    protected var scoreNumber: Int = 0
+    protected var answeredCorrect: Int = 0
     protected var totalAnswered: Int = 0
     protected lateinit var pref : SharedPreferences
     protected lateinit var winningBing : MediaPlayer
@@ -48,23 +47,17 @@ abstract class MathCardsActivity : BaseActivity() {
         // Set up the user interaction to manually show or hide the system UI.
         //equation.setOnClickListener { toggle() }
 
-        val answer: TextView = findViewById<TextView>(R.id.answer)
-
-        val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
         pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString(gameMode, "practice")
         val linearLayout = findViewById(R.id.baseLayout) as LinearLayout
 
         if (gameMode.equals("timed")) {
-            chronometer.setBase(SystemClock.elapsedRealtime());
-            chronometer.start()
-
-
-
+            timer.text = pref.getInt(gameDuration, 15).toString()
+            startTimer(pref.getInt(gameDuration, 15).toLong()*1000)
             linearLayout.setBackgroundResource(R.drawable.android_gradient_timed_play)
         }
         else {
-            chronometer.visibility = View.INVISIBLE
+            timer.visibility = View.INVISIBLE
             val score : TextView = findViewById<TextView>(R.id.score)
             score.visibility = View.INVISIBLE
             linearLayout.setBackgroundResource(R.drawable.android_gradient_list)
@@ -74,11 +67,6 @@ abstract class MathCardsActivity : BaseActivity() {
         //winningBing = MediaPlayer.create(applicationContext, R.raw.shatiabing)
     }
 
-    private fun startTimer(gameDuration : Int) {
-        Timer("TimedPlay", false).schedule(gameDuration.toLong()) {
-            checkAnswer()
-        }
-    }
     /**
      * The stuff that runs right after the main method?
      */
@@ -89,7 +77,7 @@ abstract class MathCardsActivity : BaseActivity() {
 
         val answer: TextView = findViewById<TextView>(R.id.answer)
 
-        score.text = "Score : " + scoreNumber
+        score.text = "Score : " + answeredCorrect
         answer.text = ""
 
         // Trigger the initial hide() shortly after the activity has been
@@ -155,8 +143,7 @@ abstract class MathCardsActivity : BaseActivity() {
                 answer.text = answer.text.substring(0, answer.text.length - 1)
             }
         }
-        val clearButton : Button = findViewById<Button>(R.id.clear)
-        clearButton.setOnClickListener { answer.text = "" }
+        clear.setOnClickListener { answer.text = "" }
     }
 
     /**
@@ -169,14 +156,14 @@ abstract class MathCardsActivity : BaseActivity() {
     protected fun checkAnswer() {
         var oldColor : Int = answer.currentTextColor
         if (answer.text.toString().length == total.toString().length) {
-            totalAnswered++;
+            totalAnswered++
             if (answer.text.toString().toInt() == total) {
                 answer.setTextColor(Color.GREEN)
                 //winningBing.start() TODO update bing noise
                 updateEquation()
                 clearTextSetColor(oldColor)
-                scoreNumber++
-                updateScore(scoreNumber)
+                answeredCorrect++
+                score.text = "Score : " + answeredCorrect
             }
             else {
                 answer.setTextColor(Color.RED)
@@ -185,36 +172,52 @@ abstract class MathCardsActivity : BaseActivity() {
         }
     }
 
-    protected fun updateScore(scoreNumber : Int) {
-        try {
-            val gameMode = pref.getString(gameMode, "practice")
-            val duration = pref.getInt(gameDuration, 15)
-
-            score.text = "Score : " + scoreNumber
-            if (scoreNumber == 15 && gameMode.equals("timed")) {
-                chronometer.stop()
-                val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase()
-                val intent = Intent(this, WinningScreenActivity::class.java)
-                val score : Double = (scoreNumber.toDouble()/totalAnswered.toDouble()) * 100
-                intent.putExtra("MESSAGE",  "" + elapsedMillis / 1000 + " seconds")
-                intent.putExtra("TIME", "" + "%.2f".format(score)  + "% correct")
-                this.scoreNumber = 0;
-                this.totalAnswered = 0;
-                this.startActivityForResult(intent, 0)
+    fun finishGame() {
+        val gameMode = pref.getString(gameMode, "practice")
+        if (gameMode.equals("timed")) {
+            val score : Double
+            val intent = Intent(this, WinningScreenActivity::class.java)
+            if (totalAnswered == 0) {
+                score = 0.0
             }
-        }
-        catch (e : UninitializedPropertyAccessException) {
-            // idk
+            else {
+                score = (answeredCorrect.toDouble()/totalAnswered.toDouble()) * 100
+            }
+
+            intent.putExtra("MESSAGE",  totalAnswered.toString() + " answered")
+            intent.putExtra("TIME", "" + "%.2f".format(score)  + "% correct")
+            intent.putExtra("TOTALSCORE", "Total Score:\n" + (totalAnswered*(score/100)).roundToInt())
+            val activityCalledFrom = "com.minton.fastmathtrainer." + this.localClassName
+            intent.putExtra("CALLINGACTIVITY", activityCalledFrom)
+            this.answeredCorrect = 0
+            this.totalAnswered = 0
+            this.startActivityForResult(intent, 0)
         }
     }
 
-    protected fun clearTextSetColor(color: Int) {
+    fun clearTextSetColor(color: Int) {
         Handler().postDelayed( {
             answer.setTextColor(color)
             answer.text = ""
         }, 300);
     }
 
+    private fun startTimer(timeInMillis : Long){
+        object : CountDownTimer(timeInMillis, 1000) {
 
+            override fun onTick(millisUntilFinished: Long) {
+                timer.setText((millisUntilFinished / 1000).toString())
+            }
+
+            override fun onFinish() {
+                finishGame()
+            }
+        }.start()
+    }
+
+    
+    /**
+     * This is implemented by each math card type
+     */
     open fun updateEquation() {}
 }
