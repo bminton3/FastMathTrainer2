@@ -217,7 +217,9 @@ abstract class MathCardsActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        countdownTimer.cancel()
+        if (countdownTimer != null) {
+            countdownTimer.cancel()
+        }
         val addIntent = Intent(this, MainMenuActivity::class.java)
         this.startActivity(addIntent)
     }
