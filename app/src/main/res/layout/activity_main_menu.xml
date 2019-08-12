@@ -188,7 +188,7 @@
                 android:layout_marginTop="200dp"
                 android:gravity="bottom"
                 ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+                ads:adUnitId="ca-app-pub-7040315646746005/3909232720">
             </com.google.android.gms.ads.AdView>
 
         </TableLayout>
