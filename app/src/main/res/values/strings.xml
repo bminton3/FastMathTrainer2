@@ -50,6 +50,7 @@
     <string name="nine">9</string>
     <string name="zero">0</string>
     <string name="clear">Clear</string>
-    <string name="back">◄</string>
+    <string name="backarrow">◄</string>
+    <string name="back">Back</string>
     <string name="title_activity_base">BaseActivity</string>
 </resources>

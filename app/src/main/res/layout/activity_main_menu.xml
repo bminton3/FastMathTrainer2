@@ -115,6 +115,10 @@
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="22sp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="5.5"
+                    android:shadowDx="4"
+                    android:shadowDy="4"
                     app:fontFamily="@font/pt_serif_caption" />
 
                 <Button
@@ -129,6 +133,10 @@
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="22sp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="5.5"
+                    android:shadowDx="4"
+                    android:shadowDy="4"
                     app:fontFamily="@font/pt_serif_caption" />
             </TableRow>
 
@@ -146,7 +154,11 @@
                     android:text="@string/multiplication"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="5.5"
+                    android:shadowDx="4"
+                    android:shadowDy="4"/>
 
                 <Button
                     android:id="@+id/division"
@@ -160,7 +172,11 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="5.5"
+                    android:shadowDx="4"
+                    android:shadowDy="4"/>
             </TableRow>
 
 
@@ -176,7 +192,11 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:shadowColor="#282F3A"
+                android:shadowRadius="5.5"
+                android:shadowDx="4"
+                android:shadowDy="4"/>
 
         </TableLayout>
 

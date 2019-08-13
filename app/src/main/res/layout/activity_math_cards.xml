@@ -45,6 +45,7 @@
                 android:layout_marginTop="5dp"
                 app:layout_columnWeight="1"
                 />
+
         </androidx.gridlayout.widget.GridLayout>
 
     </LinearLayout>
@@ -60,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="top|center"
+            android:gravity="center"
             android:keepScreenOn="true"
             android:text="@string/equation"
             android:textColor="#FFFFFF"
@@ -108,10 +109,14 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/one"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
                 <Button
                     android:id="@+id/two"
                     android:layout_toRightOf="@+id/one"
@@ -120,20 +125,28 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/two"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
                 <Button
                     android:id="@+id/three"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/three"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
             </TableRow>
 
             <TableRow android:layout_weight="1" >
@@ -143,10 +156,14 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/four"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
                 <Button
                     android:id="@+id/five"
                     android:layout_height="match_parent"
@@ -154,20 +171,28 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/five"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
                 <Button
                     android:id="@+id/six"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/six"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
@@ -176,10 +201,14 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/seven"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
 
                 <Button
                     android:id="@+id/eight"
@@ -188,10 +217,14 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/eight"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
 
                 <Button
                     android:id="@+id/nine"
@@ -199,10 +232,14 @@
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/nine"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
             </TableRow>
             <TableRow android:layout_weight="1" >
                 <Button
@@ -210,9 +247,9 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/clear"
-                    android:textColor="#2e355b"
+                    android:textColor="#FFFFFF"
                     android:textSize="28sp"/>
                 <Button
                     android:id="@+id/zero"
@@ -220,19 +257,23 @@
                     android:layout_width="match_parent"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/zero"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="40dp"
+                    android:shadowColor="#282F3A"
+                    android:shadowRadius="3.5"
+                    android:shadowDx="3"
+                    android:shadowDy="3"/>
                 <Button
                     android:id="@+id/back"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/flatbuttonstate"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="@string/back"
-                    android:textColor="#2e355b"
-                    android:textSize="40dp"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
