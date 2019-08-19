@@ -1,0 +1,41 @@
+** Fast Math Trainer **
+
+Things to work on
+
+Menu:
+	1. Background is too dark. Change the background - done
+	2. Buttons should be rounded and color changed - done (maybe not change colors yet)
+Math Cards:
+	1. Shatia sound removed - done
+	2. Division doesn't look that good
+	3. Back button icon isn't great. - done
+	4. Buttons themselves can be rounded and made better looking. Consider images? - done
+	
+	
+Math Cards (timed)
+	1. OldScore? - done
+	2. Do we want to change the color? - done
+	3. Move problem text down a bit - done
+	4. Multiply total score depending on difficulty
+	5. Store high scores
+	
+Math Cards (practice)
+	1. Number of correct answers? - done
+	2. Give the user a way to get out of the practice
+	3. Store number answered per second
+	
+Results:
+	1. Make more meaningful (What does this mean?)
+		a. remove correct percentage, create a point system based on correct and time taken - done
+	2. Fix back action - done
+	3. Record results - 
+	4. High score
+	
+Monetize:
+	1. banner ad in menu - done
+	2. banner ad in settings - done
+	3. full page ad before game loads?
+	4. also added banner ad in winning screen
+	
+
+	

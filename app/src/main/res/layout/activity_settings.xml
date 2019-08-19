@@ -168,4 +168,53 @@
             android:padding="5dp"
             android:textStyle="bold"/>
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/practicequestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentmode"
+        android:layout_alignStart="@+id/currentmode"
+        android:layout_below="@+id/durationRadioButtonGroup"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/pt_serif_caption"
+        android:text="@string/practicequestionstext"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/practiceRadioButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/practicequestions"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="40dp">
+        <RadioButton
+            android:id="@+id/shortPracticeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thirtyQuestions"
+            android:textColor="#FFFFFF"
+            android:padding="7dp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/mediumPracticeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sixtyQuestions"
+            android:textColor="#FFFFFF"
+            android:padding="7dp"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/longPracticeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/ninetyQuestions"
+            android:textColor="#FFFFFF"
+            android:padding="7dp"
+            android:textStyle="bold"/>
+    </RadioGroup>
 </RelativeLayout>

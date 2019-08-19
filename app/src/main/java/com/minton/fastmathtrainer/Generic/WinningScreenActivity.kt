@@ -2,6 +2,8 @@ package com.minton.fastmathtrainer.Generic
 
 import android.os.Bundle
 import android.content.Intent
+import android.os.Handler
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.gms.ads.AdRequest
@@ -10,6 +12,8 @@ import com.google.android.gms.ads.MobileAds
 import com.minton.fastmathtrainer.Menus.MainMenuActivity
 import com.minton.fastmathtrainer.R
 import com.minton.fastmathtrainer.Style.StyleHandler
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class WinningScreenActivity : BaseActivity() {
@@ -66,10 +70,22 @@ class WinningScreenActivity : BaseActivity() {
 
         val messageText: TextView = findViewById<TextView>(R.id.message)
         val timeText: TextView = findViewById<TextView>(R.id.time)
+        val totalscoreBanner: TextView = findViewById<TextView>(R.id.totalscorebanner)
         val totalscoreText: TextView = findViewById<TextView>(R.id.totalscore)
 
         messageText.text = message
-        timeText.text = time
-        totalscoreText.text = totalscore
+        timeText.text = ""
+        totalscoreBanner.visibility = View.INVISIBLE
+        totalscoreText.text = ""
+
+        Handler().postDelayed({
+            timeText.text = time
+        }, 1000)
+        Handler().postDelayed({
+            totalscoreBanner.visibility = View.VISIBLE
+        }, 2000)
+        Handler().postDelayed({
+            totalscoreText.text = totalscore
+        }, 3000)
     }
 }

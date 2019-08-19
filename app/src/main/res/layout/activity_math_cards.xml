@@ -35,6 +35,16 @@
                 android:layout_marginTop="5dp"
                 app:layout_columnWeight="1"
                 />
+            <Chronometer
+                android:id="@+id/chronometer"
+                app:layout_gravity="start"
+                android:text="@string/timertext"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                app:layout_columnWeight="1"
+                />
             <TextView
                 android:id="@+id/score"
                 app:layout_gravity="end"

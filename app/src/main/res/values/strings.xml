@@ -25,6 +25,10 @@
     <string name="fifteen">15s</string>
     <string name="thirty">30s</string>
     <string name="fortyfive">45s</string>
+    <string name="thirtyQuestions">30</string>
+    <string name="sixtyQuestions">60</string>
+    <string name="ninetyQuestions">90</string>
+    <string name="practicequestionstext">Practice Questions</string>
 
     <!-- math cards -->
     <string name="equation">%1s</string>
@@ -34,6 +38,7 @@
     <!-- winning screen -->
     <string name="results">Results:</string>
     <string name="message">%1s</string>
+    <string name="totalscorebanner">Total Score:</string>
     <string name="totalscore">%ls</string>
     <string name="reset">Start Over</string>
     <string name="menu">Main Menu</string>
