@@ -11,24 +11,22 @@ import java.security.SecureRandom
 class Number {
     private var lastRandomNumber : Int = 0
 
-    protected fun generateFreshRandom(bound : Int) : Int {
+    private fun generateFreshRandom(bound: Int): Int {
         val random = SecureRandom()
         var nextRandomInt = random.nextInt(bound)
-        // false for left, true for right
-                while (nextRandomInt == lastRandomNumber) {
-                    nextRandomInt = random.nextInt(bound)
-                }
-                //Log.i("Number.generateFreshRandom()", "last random int:" + lastRandomNumber + " and next random int:" + nextRandomInt)
-                lastRandomNumber = nextRandomInt
+
+        while (nextRandomInt == lastRandomNumber) {
+            nextRandomInt = random.nextInt(bound)
+        }
+        //Log.i("Number.generateFreshRandom()", "last random int:" + lastRandomNumber + " and next random int:" + nextRandomInt)
+        lastRandomNumber = nextRandomInt
 
         return nextRandomInt
     }
 
-    public fun randomInt(type: String, pref : SharedPreferences): Int {
-        val random = SecureRandom()
-        val difficulty = pref.getString("difficulty", "easy")
+    fun randomInt(type: String, pref: SharedPreferences): Int {
         //Log.i("Number.randomInt()", "difficulty setting:" + difficulty + " prefs contains difficulty:" + pref.contains("difficulty"))
-        when (difficulty) {
+        when (pref.getString("difficulty", "easy")) {
             "easy" -> {
                 when (type) {
                     "addition" -> return generateFreshRandom(9)
