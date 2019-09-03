@@ -12,6 +12,7 @@ class CombinationCardsActivity : MathCardsActivity() {
     private val operation = arrayOf("addition", "subtraction", "multiplication", "division")
     private val firstNumber : Number = Number()
     private val secondNumber : Number = Number()
+    override var gameType : String = "combo"
 
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)

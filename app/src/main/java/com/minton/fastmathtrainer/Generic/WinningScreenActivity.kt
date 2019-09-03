@@ -67,25 +67,31 @@ class WinningScreenActivity : BaseActivity() {
         val message = intent.getStringExtra("MESSAGE")
         val time = intent.getStringExtra("TIME")
         val totalscore = intent.getStringExtra("TOTALSCORE")
+        val newhighscore = intent.getStringExtra("NEWHIGHSCORE")
 
         val messageText: TextView = findViewById<TextView>(R.id.message)
         val timeText: TextView = findViewById<TextView>(R.id.time)
         val totalscoreBanner: TextView = findViewById<TextView>(R.id.totalscorebanner)
-        val totalscoreText: TextView = findViewById<TextView>(R.id.totalscore)
+        val newhighscoreText: TextView = findViewById<TextView>(R.id.newhighscore)
 
-        messageText.text = message
-        timeText.text = ""
-        totalscoreBanner.visibility = View.INVISIBLE
-        totalscoreText.text = ""
+        messageText.text = "You solved _ problems"
+        timeText.text = "in _ seconds"
+        totalscoreBanner.text = "Total Score: _"
+        newhighscoreText.text = ""
 
         Handler().postDelayed({
-            timeText.text = time
+            messageText.text = message
         }, 1000)
         Handler().postDelayed({
-            totalscoreBanner.visibility = View.VISIBLE
+            timeText.text = time
         }, 2000)
         Handler().postDelayed({
-            totalscoreText.text = totalscore
+            totalscoreBanner.text = totalscore
         }, 3000)
+        if (newhighscore != null) {
+            Handler().postDelayed({
+                newhighscoreText.text = newhighscore
+            }, 3000)
+        }
     }
 }

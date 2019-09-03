@@ -194,7 +194,7 @@
             android:id="@+id/shortPracticeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/thirtyQuestions"
+            android:text="@string/fifteenQuestions"
             android:textColor="#FFFFFF"
             android:padding="7dp"
             android:textStyle="bold" />
@@ -203,7 +203,7 @@
             android:id="@+id/mediumPracticeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sixtyQuestions"
+            android:text="@string/thirtyQuestions"
             android:textColor="#FFFFFF"
             android:padding="7dp"
             android:textStyle="bold"/>
@@ -212,7 +212,7 @@
             android:id="@+id/longPracticeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="@string/ninetyQuestions"
+            android:text="@string/fortyFiveQuestions"
             android:textColor="#FFFFFF"
             android:padding="7dp"
             android:textStyle="bold"/>

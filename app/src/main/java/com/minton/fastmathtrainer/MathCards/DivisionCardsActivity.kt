@@ -12,13 +12,14 @@ class DivisionCardsActivity : MathCardsActivity() {
 
     private val firstNumber : Number = Number()
     private val secondNumber : Number = Number()
+    override var gameType : String = "division"
 
     /** TODO figure out division */
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        val x = firstNumber.randomInt("division", pref)
-        var y = secondNumber.randomInt("division", pref)
+        val x = firstNumber.randomInt(gameType, pref)
+        var y = secondNumber.randomInt(gameType, pref)
         // avoid divide by zero
         if (y == 0) {
             y++

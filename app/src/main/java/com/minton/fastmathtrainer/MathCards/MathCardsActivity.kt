@@ -22,7 +22,7 @@ import com.minton.fastmathtrainer.Generic.gameDuration
 import com.minton.fastmathtrainer.Generic.gameMode
 import com.minton.fastmathtrainer.Generic.practiceGameLength
 import com.minton.fastmathtrainer.Generic.practiceGameShort
-import com.minton.fastmathtrainer.Generic.practiceHighScore
+import com.minton.fastmathtrainer.Generic.newHighScoreText
 import com.minton.fastmathtrainer.Generic.timedHighScore
 import com.minton.fastmathtrainer.Menus.MainMenuActivity
 import com.minton.fastmathtrainer.Style.StyleHandler
@@ -42,6 +42,7 @@ abstract class MathCardsActivity : BaseActivity() {
     protected lateinit var pref : SharedPreferences
     protected lateinit var winningBing : MediaPlayer
     private lateinit var countdownTimer: CountDownTimer
+    abstract var gameType : String
 
     /**
      * Maybe this is the main method
@@ -208,8 +209,11 @@ abstract class MathCardsActivity : BaseActivity() {
      */
     fun finishGame() {
         val gameMode = pref.getString(gameMode, "practice")
+        // TODO need high scores for each game type ya dummy
+        val oldPracticeHighScore = getOldHighScore()
         var pref = getSharedPreferences("fastmathtrainer",0).edit()
         val intent = Intent(this, WinningScreenActivity::class.java)
+
         if (gameMode.equals("timed")) {
             val score : Double
             if (totalAnswered == 0) {
@@ -230,20 +234,72 @@ abstract class MathCardsActivity : BaseActivity() {
             val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
             chronometer.stop()
             val elapsedSeconds = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000
-            intent.putExtra("MESSAGE", "You answered $answeredCorrect problems")
-            intent.putExtra("TIME", "In $elapsedSeconds seconds.")
-            val practiceTotalScore = "%.2f".format(answeredCorrect.toDouble() / elapsedSeconds.toDouble())
-            Log.i("MathCardsActivity", "practice total score: $practiceTotalScore")
-            intent.putExtra("TOTALSCORE", practiceTotalScore.toString())
-            pref.putFloat(practiceHighScore, practiceTotalScore.toFloat())
+            intent.putExtra("MESSAGE", "You solved $answeredCorrect problems")
+            intent.putExtra("TIME", "in $elapsedSeconds seconds.")
+            val practiceTotalScore = (answeredCorrect.toDouble() / elapsedSeconds.toDouble()) * 100
+            val practiceTotalScoreString = "%.2f".format((answeredCorrect.toDouble() / elapsedSeconds.toDouble()) * 100)
+            Log.i("MathCardsActivity", "practice total score: $practiceTotalScoreString")
+            intent.putExtra("TOTALSCORE", "Total Score: $practiceTotalScoreString ")
+
+            // new high score logic
+            Log.i("MathCardsActivity", "old high score: $oldPracticeHighScore")
+            if (practiceTotalScore > oldPracticeHighScore) {
+                Log.i("MathCardsActivity", "new score beat the old score: $practiceTotalScoreString")
+                putNewHighScore(gameType, practiceTotalScore.toFloat())
+                intent.putExtra("NEWHIGHSCORE", newHighScoreText)
+            }
         }
 
-        pref.commit()
+        pref.apply()
         val activityCalledFrom = "com.minton.fastmathtrainer." + this.localClassName
         intent.putExtra("CALLINGACTIVITY", activityCalledFrom)
         this.answeredCorrect = 0
         this.totalAnswered = 0
         this.startActivityForResult(intent, 0)
+    }
+
+    private fun getOldHighScore() : Float {
+        var highScore = 0.0f
+        when(gameType) {
+            "addition" -> {
+                highScore = pref.getFloat("additionHighScore", 0.0f)
+            }
+            "subtraction" -> {
+                highScore = pref.getFloat("subtractionHighScore", 0.0f)
+            }
+            "multiplication" -> {
+                highScore = pref.getFloat("multiplicationHighScore", 0.0f)
+            }
+            "division" -> {
+                highScore = pref.getFloat("divisionHighScore", 0.0f)
+            }
+            "combo" -> {
+                highScore = pref.getFloat("comboHighScore", 0.0f)
+            }
+        }
+        return highScore
+    }
+
+    private fun putNewHighScore(gameType: String, newHighScore : Float) {
+        var pref = getSharedPreferences("fastmathtrainer",0).edit()
+        when(gameType) {
+            "addition" -> {
+                pref.putFloat("additionHighScore", newHighScore)
+            }
+            "subtraction" -> {
+                pref.putFloat("subtractionHighScore", newHighScore)
+            }
+            "multiplication" -> {
+                pref.putFloat("multiplicationHighScore", newHighScore)
+            }
+            "division" -> {
+                pref.putFloat("divisionHighScore", newHighScore)
+            }
+            "combo" -> {
+                pref.putFloat("comboHighScore", newHighScore)
+            }
+        }
+        pref.apply()
     }
 
     fun clearTextSetColor(color: Int) {

@@ -10,12 +10,13 @@ class SubtractionCardsActivity : MathCardsActivity() {
 
     val firstNumber : Number = Number()
     val secondNumber : Number = Number()
+    override var gameType : String = "subtraction"
 
     override fun updateEquation() {
         val text: TextView = findViewById<TextView>(R.id.equation)
 
-        var x = firstNumber.randomInt("subtraction", pref)
-        var y = secondNumber.randomInt("subtraction", pref)
+        var x = firstNumber.randomInt(gameType, pref)
+        var y = secondNumber.randomInt(gameType, pref)
         if (y > x) {
             var temp = x
             x = y

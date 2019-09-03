@@ -25,9 +25,9 @@
     <string name="fifteen">15s</string>
     <string name="thirty">30s</string>
     <string name="fortyfive">45s</string>
+    <string name="fifteenQuestions">15</string>
     <string name="thirtyQuestions">30</string>
-    <string name="sixtyQuestions">60</string>
-    <string name="ninetyQuestions">90</string>
+    <string name="fortyFiveQuestions">45</string>
     <string name="practicequestionstext">Practice Questions</string>
 
     <!-- math cards -->
@@ -36,10 +36,12 @@
     <string name="score">%1s</string>
 
     <!-- winning screen -->
-    <string name="results">Results:</string>
-    <string name="message">%1s</string>
-    <string name="totalscorebanner">Total Score:</string>
-    <string name="totalscore">%ls</string>
+    <string name="results">Results</string>
+    <string name="message">You solved &lt;u>%1s&lt;/u> problems</string>
+    <string name="messageLineTwo">in &lt;u>%ls&lt;/u> seconds.</string>
+    <string name="totalscorebanner">Total Score: &lt;u>%ls&lt;/u></string>
+    <string name="totalscore">&lt;u>%ls&lt;/u></string>
+    <string name="newhighscore">%ls</string>
     <string name="reset">Start Over</string>
     <string name="menu">Main Menu</string>
 
