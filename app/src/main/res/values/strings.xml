@@ -37,6 +37,7 @@
 
     <!-- winning screen -->
     <string name="results">Results</string>
+    <string name="resultsBoldItalic"><![CDATA[<i><b>Results</i></b>]]> </string>
     <string name="message">You solved &lt;u>%1s&lt;/u> problems</string>
     <string name="messageLineTwo">in &lt;u>%ls&lt;/u> seconds.</string>
     <string name="totalscorebanner">Total Score: &lt;u>%ls&lt;/u></string>

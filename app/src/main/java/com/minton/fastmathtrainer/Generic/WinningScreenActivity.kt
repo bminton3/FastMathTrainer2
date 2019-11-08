@@ -2,6 +2,7 @@ package com.minton.fastmathtrainer.Generic
 
 import android.os.Bundle
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Handler
 import android.view.View
 import android.widget.Button
@@ -19,13 +20,14 @@ import kotlin.concurrent.schedule
 class WinningScreenActivity : BaseActivity() {
 
     lateinit var mAdView : AdView
+    protected lateinit var pref : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val intent = intent
         // set the bg color - this used to set the bg color. Not anymore. Can we remove?
-        var pref = getSharedPreferences("fastmathtrainer",0)
+        pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString(gameMode, "practice")
 
         setContentView(R.layout.activity_winning_screen)
@@ -63,6 +65,7 @@ class WinningScreenActivity : BaseActivity() {
 
     private fun fillWinningTextValues() {
         val intent = intent
+        val gameMode = pref.getString(gameMode, "practice")
 
         val message = intent.getStringExtra("MESSAGE")
         val time = intent.getStringExtra("TIME")
@@ -74,10 +77,18 @@ class WinningScreenActivity : BaseActivity() {
         val totalscoreBanner: TextView = findViewById<TextView>(R.id.totalscorebanner)
         val newhighscoreText: TextView = findViewById<TextView>(R.id.newhighscore)
 
-        messageText.text = "You solved _ problems"
-        timeText.text = "in _ seconds"
-        totalscoreBanner.text = "Total Score: _"
-        newhighscoreText.text = ""
+        if (gameMode.equals("practice")) {
+            messageText.text = "You solved  problems"
+            timeText.text = "in  seconds"
+            totalscoreBanner.text = "Total Score: "
+            newhighscoreText.text = ""
+        }
+        else {
+            messageText.text = "  answered"
+            timeText.text = "% correct"
+            totalscoreBanner.text = "Total Score: "
+            newhighscoreText.text = ""
+        }
 
         Handler().postDelayed({
             messageText.text = message

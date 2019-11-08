@@ -27,7 +27,7 @@
             android:textColor="#FFFFFF"
             android:textSize="50sp"
             android:paddingBottom="1dp"
-            android:textStyle="bold" />
+            android:textStyle="italic|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="bottom|left"
+            android:gravity="center|bottom"
             android:paddingLeft="25dp"
             android:keepScreenOn="true"
             android:text="@string/message"
@@ -60,7 +60,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="left"
+            android:gravity="bottom|center"
             android:paddingLeft="25dp"
             android:paddingTop="20dp"
             android:keepScreenOn="true"
@@ -103,6 +103,7 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="left"
             android:keepScreenOn="true"
+            android:paddingLeft="25dp"
             android:text="@string/totalscorebanner"
             android:textColor="#FFFFFF"
             android:textSize="42sp"

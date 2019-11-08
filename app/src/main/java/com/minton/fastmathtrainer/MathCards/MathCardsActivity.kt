@@ -227,7 +227,7 @@ abstract class MathCardsActivity : BaseActivity() {
             intent.putExtra("TIME", "" + "%.2f".format(score)  + "% correct")
             val totalScore = (totalAnswered*(score/100)).roundToInt()
             Log.i("MathCardsActivity", "total score: $totalScore")
-            intent.putExtra("TOTALSCORE", totalScore.toString())
+            intent.putExtra("TOTALSCORE", "Total Score: " + totalScore.toString())
             pref.putInt(timedHighScore, totalScore)
         }
         else {
