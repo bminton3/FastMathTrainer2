@@ -222,24 +222,25 @@ abstract class MathCardsActivity : BaseActivity() {
             else {
                 score = (answeredCorrect.toDouble()/totalAnswered.toDouble()) * 100
             }
-
+            // these two lines are no longer used
             intent.putExtra("MESSAGE",  totalAnswered.toString() + " answered")
             intent.putExtra("TIME", "" + "%.2f".format(score)  + "% correct")
             val totalScore = (totalAnswered*(score/100)).roundToInt()
             Log.i("MathCardsActivity", "total score: $totalScore")
-            intent.putExtra("TOTALSCORE", "Total Score: " + totalScore.toString())
+            intent.putExtra("TOTALSCORE", totalScore.toString())
             pref.putInt(timedHighScore, totalScore)
         }
         else {
             val chronometer: Chronometer = findViewById<Chronometer>(R.id.chronometer)
             chronometer.stop()
             val elapsedSeconds = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000
+            // these two lines are no longer used
             intent.putExtra("MESSAGE", "You solved $answeredCorrect problems")
             intent.putExtra("TIME", "in $elapsedSeconds seconds.")
             val practiceTotalScore = (answeredCorrect.toDouble() / elapsedSeconds.toDouble()) * 100
             val practiceTotalScoreString = "%.2f".format((answeredCorrect.toDouble() / elapsedSeconds.toDouble()) * 100)
             Log.i("MathCardsActivity", "practice total score: $practiceTotalScoreString")
-            intent.putExtra("TOTALSCORE", "Total Score: $practiceTotalScoreString ")
+            intent.putExtra("TOTALSCORE", practiceTotalScoreString)
 
             // new high score logic
             Log.i("MathCardsActivity", "old high score: $oldPracticeHighScore")

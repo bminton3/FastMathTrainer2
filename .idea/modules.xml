@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FastMathTrainer2.iml" filepath="$PROJECT_DIR$/FastMathTrainer2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/FastMathTrainer2-app.iml" filepath="$PROJECT_DIR$/app/FastMathTrainer2-app.iml" group="FastMathTrainer2/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projects-FastMathTrainer2.iml" filepath="$PROJECT_DIR$/projects-FastMathTrainer2.iml" group="FastMathTrainer2" />
     </modules>
   </component>
 </project>

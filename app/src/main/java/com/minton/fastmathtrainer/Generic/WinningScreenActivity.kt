@@ -80,13 +80,13 @@ class WinningScreenActivity : BaseActivity() {
         if (gameMode.equals("practice")) {
             messageText.text = "You solved  problems"
             timeText.text = "in  seconds"
-            totalscoreBanner.text = "Total Score: "
+            totalscoreBanner.text = ""
             newhighscoreText.text = ""
         }
         else {
             messageText.text = "  answered"
             timeText.text = "% correct"
-            totalscoreBanner.text = "Total Score: "
+            totalscoreBanner.text = ""
             newhighscoreText.text = ""
         }
 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/baseLayout"
+    android:background="@drawable/android_gradient_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.minton.fastmathtrainer.Menus.MainMenuActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView4">
+
+        <ImageButton
+            android:id="@+id/buttonadd"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:padding="25dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/metallicbuttonstate"
+            app:srcCompat="@drawable/buttonaddition" />
+
+        <ImageButton
+            android:id="@+id/buttonsubtract"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:padding="25dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/metallicbuttonstate"
+            app:srcCompat="@drawable/buttonminus" />
+
+        <ImageButton
+            android:id="@+id/buttondivide"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/metallicbuttonstate"
+            app:srcCompat="@drawable/buttondivide" />
+
+        <ImageButton
+            android:id="@+id/buttonmultiply"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/metallicbuttonstate"
+            app:srcCompat="@drawable/buttonmultiply" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/metallicbuttonstate"
+            app:srcCompat="@drawable/buttonrandom" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

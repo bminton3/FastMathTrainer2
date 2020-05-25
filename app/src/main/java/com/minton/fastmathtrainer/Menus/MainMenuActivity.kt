@@ -34,9 +34,9 @@ class MainMenuActivity : BaseActivity() {
         var pref = getSharedPreferences("fastmathtrainer",0)
         val gameMode = pref.getString(gameMode, "practice")
 
-        setContentView(R.layout.activity_main_menu)
+        setContentView(R.layout.activity_main_menu_v3)
         StyleHandler().runAnimatedBackground(findViewById(R.id.baseLayout), gameMode)
-        createButtonListeners()
+        //createButtonListeners()
 
         // load ads
 //        MobileAds.initialize(this) {}
@@ -45,19 +45,14 @@ class MainMenuActivity : BaseActivity() {
 //        mAdView.loadAd(adRequest)
     }
 
+    // Settings might have changed. Handle if we need to recreate the Activity
     override fun onResume() {
         super.onResume()
-        var pref = getSharedPreferences("fastmathtrainer",0)
-        // pref.putString("restartActivity", "true")
-        var restartActivity = pref.getString("restartActivity", "false")
-        if (restartActivity.equals("true")) {
-            var pref = getSharedPreferences("fastmathtrainer",0).edit()
-            pref.putString("restartActivity", "false")
-            pref.commit()
-            //Log.i("MainMenuActivity", "recreating activity")
-            recreate()
-        }
+
+        gameTypeSwitchedRecreateActivity();
     }
+
+
 
     open fun createButtonListeners() {
         val add : Button = findViewById<Button>(R.id.add)
@@ -116,5 +111,18 @@ class MainMenuActivity : BaseActivity() {
 
     override fun onBackPressed() {
         moveTaskToBack(true)
+    }
+
+    private fun gameTypeSwitchedRecreateActivity() {
+        var pref = getSharedPreferences("fastmathtrainer",0)
+        // pref.putString("restartActivity", "true")
+        var restartActivity = pref.getString("restartActivity", "false")
+        if (restartActivity.equals("true")) {
+            var pref = getSharedPreferences("fastmathtrainer",0).edit()
+            pref.putString("restartActivity", "false")
+            pref.commit()
+            //Log.i("MainMenuActivity", "recreating activity")
+            recreate()
+        }
     }
 }
